@@ -6,8 +6,8 @@ alias aliases="vim ~/.bash_aliases"
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
-alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
-alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
+alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
+alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
 
 ## remote
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/dev/"
