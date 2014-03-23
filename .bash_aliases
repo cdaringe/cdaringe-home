@@ -6,8 +6,6 @@ alias aliases="vim ~/.bash_aliases"
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
-alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
-alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
 
 ## remote
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/dev/"
@@ -45,4 +43,5 @@ killa () {
 ## osx only
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
-
+alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
+alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
