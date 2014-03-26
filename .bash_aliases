@@ -1,4 +1,4 @@
-## config
+# config
 alias vimrc="vim ~/.vimrc"
 alias aliases="vim ~/.bash_aliases"
 
@@ -8,10 +8,11 @@ alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
 
 ## remote
-alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/dev/"
+alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
 alias ssh10="ssh neweb10 -t screen"
 alias list="screen -list"
 alias web="cd /var/www/html"
+alias scpTo10="scp $1 cdieringer@neweb10:~/"
 
 ## compression
 alias untar="tar -xvf $1"
