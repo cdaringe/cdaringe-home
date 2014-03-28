@@ -18,12 +18,18 @@ alias scpTo10="scp $1 cdieringer@neweb10:~/"
 alias untar="tar -xvf $1"
 
 ## apache
+alias usrestart="sudo /etc/init.d/apache2 restart"
 alias serverrestart="sudo /sbin/service httpd restart"
 alias serverstop="sudo /sbin/service httpd stop"
 alias serverstart="sudo /sbin/service httpd start"
 
-alias serverconf="sudo vim /etc/httpd/conf/httpd.conf"
+alias serverconfcent="sudo vim /etc/httpd/conf/httpd.conf"
+alias serverconfubu="sudo vim /etc/apache2/httpd.conf"
+alias siteconfubu="sudo vim /etc/apache2/envvars"
 alias sslconf="sudo vim /etc/httpd/conf.d/ssl.conf"
+
+#php
+alias phpiniubu="sudo vim /etc/php5/apache2/php.ini"
 
 ## git
 clonehere () {
