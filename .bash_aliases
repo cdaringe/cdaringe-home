@@ -24,7 +24,7 @@ alias serverstop="sudo /sbin/service httpd stop"
 alias serverstart="sudo /sbin/service httpd start"
 
 alias serverconfcent="sudo vim /etc/httpd/conf/httpd.conf"
-alias serverconfubu="sudo vim /etc/apache2/httpd.conf"
+alias serverconfubu="sudo vim /etc/apache2/sites-enabled/000-default"
 alias siteconfubu="sudo vim /etc/apache2/envvars"
 alias sslconf="sudo vim /etc/httpd/conf.d/ssl.conf"
 
