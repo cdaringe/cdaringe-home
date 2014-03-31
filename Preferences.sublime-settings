@@ -1,0 +1,16 @@
+{
+    "auto_complete_commit_on_tab": true,
+    "folder_exclude_patterns":
+    [
+        ".hg",
+        "CVS"
+    ],
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "keys": ["super+shift+r"], "command": "reindent" , "args": {"single_line": false},
+    "show_line_endings": true,
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true
+}
