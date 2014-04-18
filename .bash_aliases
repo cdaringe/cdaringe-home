@@ -13,6 +13,9 @@ alias ssh10="ssh neweb10 -t screen"
 alias list="screen -list"
 alias web="cd /var/www/html"
 alias scpTo10="scp $1 cdieringer@neweb10:~/"
+alias scpTo10f="scp -r $1 cdieringer@neweb10:~/"
+alias scpFrom10="scp cdieringer@neweb10:~/$1 ~/Desktop/"
+alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
 
 ## compression
 alias untar="tar -xvf $1"
