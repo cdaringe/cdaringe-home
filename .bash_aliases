@@ -28,6 +28,9 @@ alias serverconfubu="sudo vim /etc/apache2/sites-enabled/000-default"
 alias siteconfubu="sudo vim /etc/apache2/envvars"
 alias sslconf="sudo vim /etc/httpd/conf.d/ssl.conf"
 
+## node
+alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
+
 #php
 alias phpiniubu="sudo vim /etc/php5/apache2/php.ini"
 
