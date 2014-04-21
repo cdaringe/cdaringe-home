@@ -33,6 +33,7 @@ alias sslconf="sudo vim /etc/httpd/conf.d/ssl.conf"
 
 ## node
 alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
+alias logs="cd /var/log"
 
 #php
 alias phpiniubu="sudo vim /etc/php5/apache2/php.ini"

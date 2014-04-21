@@ -1,7 +1,8 @@
 # track only basic config files
 *
-!.bash_aliases
 !.gitignore
+!.bash_aliases
+!.bash_profile
 !.vimrc
 !./vim/
 !.vim
