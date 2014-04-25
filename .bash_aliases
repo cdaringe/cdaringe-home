@@ -17,19 +17,24 @@ alias scpTo10="scp $1 cdieringer@neweb10:~/"
 ## compression
 alias untar="tar -xvf $1"
 
-## apache
-alias usrestart="sudo /etc/init.d/apache2 restart"
-alias serverrestart="sudo /sbin/service httpd restart"
-alias serverstop="sudo /sbin/service httpd stop"
-alias serverstart="sudo /sbin/service httpd start"
+#** SERVER **#
+    ## apache
+    alias usrestart="sudo /etc/init.d/apache2 restart"
+    alias serverrestart="sudo /sbin/service httpd restart"
+    alias serverstop="sudo /sbin/service httpd stop"
+    alias serverstart="sudo /sbin/service httpd start"
 
-alias serverconfcent="sudo vim /etc/httpd/conf/httpd.conf"
-alias serverconfubu="sudo vim /etc/apache2/sites-enabled/000-default"
-alias siteconfubu="sudo vim /etc/apache2/envvars"
-alias sslconf="sudo vim /etc/httpd/conf.d/ssl.conf"
+    alias serverconfcent="sudo vim /etc/httpd/conf/httpd.conf"
+    alias serverconfubu="sudo vim /etc/apache2/sites-enabled/000-default"
+    alias siteconfubu="sudo vim /etc/apache2/envvars"
+    alias sslconf="sudo vim /etc/httpd/conf.d/ssl.conf"
 
-## node
-alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
+    ## node
+    alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
+    
+    ## httpster
+    alias httpup="httpster /Users/cdieringer/ &"
+    alias httpdown="kill $(ps aux | grep '[h]ttpster' | awk '{print $2}')"
 
 #php
 alias phpiniubu="sudo vim /etc/php5/apache2/php.ini"
