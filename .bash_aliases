@@ -19,7 +19,9 @@ alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
 
 # git
 alias gpm="git pull origin master"
-alias gpd="git pull origin dev"
+alias gpushm="git push origin master"
+alias gpush="git push origin $1"
+alias gp="git pull origin $1"
 alias gcm="git commit -a -m $1"
 
 ## compression
