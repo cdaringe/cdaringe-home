@@ -17,6 +17,11 @@ alias scpTo10f="scp -r $1 cdieringer@neweb10:~/"
 alias scpFrom10="scp cdieringer@neweb10:~/$1 ~/Desktop/"
 alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
 
+# git
+alias gpm="git pull origin master"
+alias gpd="git pull origin dev"
+alias gcm="git commit -a -m $1"
+
 ## compression
 alias untar="tar -xvf $1"
 
