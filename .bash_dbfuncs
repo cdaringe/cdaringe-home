@@ -1,6 +1,6 @@
 #!/bin/bash
 # REQUIRES THAT YOU HAVE A .secrets file in your ~ dir!
-. ./.secrets
+. ~/.secrets
 
 # update database
 udb () 
