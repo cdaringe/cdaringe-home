@@ -5,9 +5,26 @@
 # update database
 udb () 
 {
-  $db = $1
-  $filename = $2
+  USERNAME="ni_developers"
+  PASSWORD=$dbpass
+  DBHOST="nirepdb"
+  DBNAME=$1
+  PORT="5432"
+  FILENAME=$2
 
+  # if [ "$db" == "cddev" ]; then
+  # fi
+
+  echo "Validating $filename on $db"
+  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae  --defaultSchemaName=mrsdba --logLevel=info validate
+  echo "Updating ${HOST}:${DBNAME}"
+  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae --defaultSchemaName=mrsdba --logLevel=info update
+  echo ""
+  echo "Done"
+}
+
+rdb () 
+{
   USERNAME="ni_developers"
   PASSWORD=$dbpass
   DBHOST="nirepdb"
@@ -15,13 +32,8 @@ udb ()
   PORT="5432"
   FILENAME=$filename
 
-  if [ "$db" == "cddev" ]; then
-  fi
-
-  echo "Validating $filename on $db"
-  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae  --defaultSchemaName=mrsdba --logLevel=info validate
-  echo "Updating ${HOST}:${DBNAME}"
-  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae --defaultSchemaName=mrsdba --logLevel=info update
+  echo "Rolling back ${HOST}:${DBNAME}"
+  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$1 --logLevel=debug --defaultSchemaName=mrsdba rollbackCount 99
   echo ""
   echo "Done"
 }

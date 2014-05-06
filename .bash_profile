@@ -90,7 +90,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 if [ -f ~/.bash_dbfuncs ]; then
-    . ~/.bash_aliases
+    . ~/.bash_dbfuncs 
 fi
 
 # enable programmable completion features (you don't need to enable
