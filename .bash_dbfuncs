@@ -3,7 +3,7 @@
 . ~/.secrets
 
 # update database
-udb () 
+updatedb () 
 {
   USERNAME="ni_developers"
   PASSWORD=$dbpass
@@ -15,15 +15,16 @@ udb ()
   # if [ "$db" == "cddev" ]; then
   # fi
 
-  echo "Validating $filename on $db"
+  echo "Validating ${FILENAME} on ${DBNAME}!"
+  echo 'liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae  --defaultSchemaName=mrsdba --logLevel=info validate'
   liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae  --defaultSchemaName=mrsdba --logLevel=info validate
-  echo "Updating ${HOST}:${DBNAME}"
+  echo "Updating ${DBHOST}:${DBNAME}"
   liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae --defaultSchemaName=mrsdba --logLevel=info update
   echo ""
   echo "Done"
 }
 
-rdb () 
+rollbackdb () 
 {
   USERNAME="ni_developers"
   PASSWORD=$dbpass
@@ -32,7 +33,7 @@ rdb ()
   PORT="5432"
   FILENAME=$filename
 
-  echo "Rolling back ${HOST}:${DBNAME}"
+  echo "Rolling back ${DBHOST}:${DBNAME}"
   liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$1 --logLevel=debug --defaultSchemaName=mrsdba rollbackCount 99
   echo ""
   echo "Done"
