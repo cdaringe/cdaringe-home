@@ -41,6 +41,7 @@ alias untar="tar -xvf $1"
 
     ## node
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
+    alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
     
     ## httpster
     alias httpup="httpster /Users/cdieringer/ &"
