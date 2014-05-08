@@ -1,11 +1,3 @@
 # track only basic config files
-*
-!.gitignore
-!Sublime
-!Sublime/*
-!.bash_aliases
-!.bash_profile
-!.vimrc
-!./vim/
-!.vim
-!Preferences.sublime-settings
+.secrets
+.DS_Store
