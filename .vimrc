@@ -2,7 +2,8 @@ set nocompatible  " be iMproved, required
 set directory=$HOME/.vim/swapfiles/
 
 "pathogen - enable easy install of modules in ~/.vim/bundles dir
-execute pathogen#infect('~/.vim/plugin/{}')
+execute pathogen#infect()
+call pathogen#helptags()
 filetype plugin indent on
 
 "environment settings
