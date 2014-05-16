@@ -2,7 +2,9 @@ set nocompatible  " be iMproved, required
 set directory=$HOME/.vim/swapfiles/
 
 "pathogen - enable easy install of modules in ~/.vim/bundles dir
-execute pathogen#infect('~/.vim/plugin/{}')
+filetype off
+execute pathogen#infect()
+call pathogen#helptags()
 filetype plugin indent on
 
 "environment settings
@@ -15,11 +17,14 @@ set background=light
 syntax on
 colorscheme solarized
 
-"Resize splits with command+arrows
+"Key remapping splits with command+arrows
 nnoremap <D-left> :vertical resize -5<cr>
 nnoremap <D-down> :resize +5<cr>
 nnoremap <D-up> :resize -5<cr>
 nnoremap <D-right> :vertical resize +5<cr>
+
+:map <C-F12> :echo 'Current time is ' . strftime('%c')<CR>
+" let g:vdebug_keymap['run'] = '<C-s>'
 
 "post-processing
 :%s/\s\+$//e "purge all trailing whitespace
