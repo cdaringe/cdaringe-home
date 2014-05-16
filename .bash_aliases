@@ -9,7 +9,7 @@ alias home="cd ~"
 
 ## remote
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
-alias ssh10="ssh neweb10 -t screen; source ~/.bash_profile"
+alias ssh10="ssh neweb10 -t screen"
 alias list="screen -list"
 alias web="cd /var/www/html"
 alias scpTo10="scp $1 cdieringer@neweb10:~/"
