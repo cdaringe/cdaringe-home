@@ -56,6 +56,7 @@ alias gpushm="git push origin master"
 alias gpush="git push origin $1"
 alias gp="git pull origin $1"
 alias gcm="git commit -a -m $1"
+alias gbl="git branch --list"
 
 ## compression
 alias untar="tar -xvf $1"
