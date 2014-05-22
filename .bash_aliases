@@ -42,7 +42,7 @@ alias home="cd ~"
 
 ## remote
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
-alias ssh10="ssh neweb10 -t screen; source ~/.bash_profile"
+alias ssh10="ssh neweb10 -t screen"
 alias list="screen -list"
 alias web="cd /var/www/html"
 alias scpTo10="scp $1 cdieringer@neweb10:~/"
@@ -51,6 +51,7 @@ alias scpFrom10="scp cdieringer@neweb10:~/$1 ~/Desktop/"
 alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
 
 # git
+alias gs="git status"
 alias gpm="git pull origin master"
 alias gpushm="git push origin master"
 alias gpush="git push origin $1"
@@ -74,6 +75,18 @@ alias untar="tar -xvf $1"
         #php
         alias phpini="sudo vim /etc/php.ini"
 
+    elif [[ $OS == 'Darwin' ]]; then
+        ## osx only
+        alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
+        alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
+        alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
+        alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
+        
+        #set sublime to default editor. gen symlink for executing via cmd line
+        if [ "$EDITOR" != 'subl' ]; then export EDITOR='subl'; fi;
+        if [[ ! -f //usr/local/bin/sublime ]]; then
+          echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
+        fi
     elif [[ $OS == 'ubuntu' ]]; then
         alias serverconf="sudo vim /etc/apache2/sites-enabled/000-default"
         alias siteconf="sudo vim /etc/apache2/envvars"
@@ -110,9 +123,4 @@ killa () {
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
 
-## osx only
-alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
-alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
-alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
-alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
 
