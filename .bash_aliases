@@ -58,7 +58,10 @@ alias gpush="git push origin $1"
 alias gp="git pull origin $1"
 alias gcm="git commit -a -m $1"
 alias gbl="git branch --list"
-alias gcr="git checkout -b $1 origin/$1"
+function gcr() {
+  echo "git checkout -b $1 origin/$1";
+  echo `git checkout -b $1 origin/$1`;
+}
 
 ## compression
 alias untar="tar -xvf $1"
