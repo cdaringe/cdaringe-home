@@ -87,7 +87,7 @@ alias untar="tar -xvf $1"
         alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
         
         #set sublime to default editor. gen symlink for executing via cmd line
-        if [ "$EDITOR" != 'subl' ]; then export EDITOR='subl'; fi;
+        if [ "$EDITOR" != 'subl' ]; then export EDITOR='sublime'; fi;
         if [[ ! -f //usr/local/bin/sublime ]]; then
           echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
         fi
