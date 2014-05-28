@@ -103,6 +103,7 @@ alias untar="tar -xvf $1"
 
 alias vimrc="vim ~/.vimrc"
 alias aliases="$EDITOR ~/.bash_aliases"
+alias ualiases="(cd ~;git add ~/.bash_aliases; git commit -m 'aliases updated';git push origin master;)"
 alias sourceme="source ~/.bash_profile"
 
     ## node
