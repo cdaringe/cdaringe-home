@@ -49,6 +49,7 @@ alias scpTo10="scp $1 cdieringer@neweb10:~/"
 alias scpTo10f="scp -r $1 cdieringer@neweb10:~/"
 alias scpFrom10="scp cdieringer@neweb10:~/$1 ~/Desktop/"
 alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
+alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 
 # git
 alias gs="git status"
@@ -58,6 +59,8 @@ alias gpush="git push origin $1"
 alias gp="git pull origin $1"
 alias gcm="git commit -a -m $1"
 alias gbl="git branch --list"
+alias grms="removeSub(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; removeSub"
+
 function gcr() {
   echo "git checkout -b $1 origin/$1";
   echo `git checkout -b $1 origin/$1`;
