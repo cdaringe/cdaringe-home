@@ -31,9 +31,7 @@ esac
 echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit" 
 
 # config
-alias vimrc="vim ~/.vimrc"
-alias aliases="vim ~/.bash_aliases"
-alias sourceme="source ~/.bash_profile"
+export EDITOR='vim' #default
 
 ## file
 alias purgedir="rm -rf .* *"
@@ -53,8 +51,8 @@ alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl
 
 # git
 alias gs="git status"
-alias gpm="git pull origin master"
-alias gpushm="git push origin master"
+alias gpd="git pull origin develop"
+alias gpushd="git push origin develop"
 alias gpush="git push origin $1"
 alias gp="git pull origin $1"
 alias gcm="git commit -a -m $1"
@@ -90,7 +88,7 @@ alias untar="tar -xvf $1"
         alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
         
         #set sublime to default editor. gen symlink for executing via cmd line
-        if [ "$EDITOR" != 'subl' ]; then export EDITOR='sublime'; fi;
+        if [ "$EDITOR" != 'sublime' ]; then export EDITOR='sublime'; fi;
         if [[ ! -f //usr/local/bin/sublime ]]; then
           echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
         fi
@@ -105,6 +103,11 @@ alias untar="tar -xvf $1"
         #php
         alias phpini="sudo vim /etc/php5/apache2/php.ini"
     fi
+
+alias vimrc="vim ~/.vimrc"
+alias aliases="$EDITOR ~/.bash_aliases"
+alias ualiases="(cd ~;git add ~/.bash_aliases; git commit -m 'aliases updated';git push origin master;)"
+alias sourceme="source ~/.bash_profile"
 
     ## node
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
