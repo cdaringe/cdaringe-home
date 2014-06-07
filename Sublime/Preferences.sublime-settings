@@ -12,7 +12,7 @@
 		".hg",
 		"CVS"
 	],
-	"font_size": 13,
+	"font_size": 16,
 	"ignored_packages":
 	[
 		"Vintage"
