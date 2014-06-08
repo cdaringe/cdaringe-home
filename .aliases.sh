@@ -103,10 +103,10 @@ alias untar="tar -xvf $1"
     fi
 
 alias vimrc="vim ~/.vimrc"
-alias aliases="$EDITOR ~/.bash_aliases"
+alias aliases="$EDITOR ~/.aliases"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-alias ualiases="(cd ~;git add ~/.bash_aliases; git commit -m 'aliases updated';git push origin master;)"
-alias sourceme="source ~/.bash_profile"
+alias ualiases="(cd ~;git add ~/.aliases; git commit -m 'aliases updated';git push origin master;)"
+alias sourceme="source ~/.zshrc"
 
     ## node
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
