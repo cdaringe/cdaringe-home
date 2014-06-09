@@ -35,6 +35,16 @@ export EDITOR='vim' #default
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -58,8 +68,6 @@ alias gpush="git push origin $1"
 alias gp="git pull origin $1"
 alias gcm="git commit -a -m $1"
 alias gbl="git branch --list"
-alias grms="removeSub(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; removeSub"
-
 function gcr() {
   echo "git checkout -b $1 origin/$1";
   echo `git checkout -b $1 origin/$1`;
@@ -80,8 +88,6 @@ alias untar="tar -xvf $1"
 
         #php
         alias phpini="sudo vim /etc/php.ini"
-
-        if [ "$EDITOR" != 'sublime' ]; then export EDITOR='rmate'; fi;
 
     elif [[ $OS == 'Darwin' ]]; then
         ## osx only
@@ -109,9 +115,7 @@ alias untar="tar -xvf $1"
 
 alias vimrc="vim ~/.vimrc"
 alias aliases="$EDITOR ~/.aliases"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias ualiases="(cd ~;git add ~/.aliases; git commit -m 'aliases updated';git push origin master;)"
-alias sourceme="source ~/.zshrc"
 
     ## node
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
@@ -136,6 +140,13 @@ killa () {
     screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
+
+if [ -n "${BASH_VERSION}" ]; then
+    alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+    alias sourceme="source ~/.zshrc" 
+elif [ -n "${ZSH_VERSION}" ]; then 
+    alias sourceme="source ~/.bash_profile"
+fi
 
 # Get weird
 echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit"
