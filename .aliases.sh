@@ -28,8 +28,6 @@ i*86)
     ;;
 esac
 
-echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit" 
-
 # config
 export EDITOR='vim' #default
 
@@ -37,6 +35,9 @@ export EDITOR='vim' #default
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 ## remote
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
@@ -107,9 +108,10 @@ alias untar="tar -xvf $1"
     fi
 
 alias vimrc="vim ~/.vimrc"
-alias aliases="$EDITOR ~/.bash_aliases"
-alias ualiases="(cd ~;git add ~/.bash_aliases; git commit -m 'aliases updated';git push origin master;)"
-alias sourceme="source ~/.bash_profile"
+alias aliases="$EDITOR ~/.aliases"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias ualiases="(cd ~;git add ~/.aliases; git commit -m 'aliases updated';git push origin master;)"
+alias sourceme="source ~/.zshrc"
 
     ## node
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
@@ -135,4 +137,6 @@ killa () {
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
 
-
+# Get weird
+echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit"
+alias ceez='echo ceez on my knees, baby please'
