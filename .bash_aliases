@@ -80,6 +80,8 @@ alias untar="tar -xvf $1"
         #php
         alias phpini="sudo vim /etc/php.ini"
 
+        if [ "$EDITOR" != 'sublime' ]; then export EDITOR='rmate'; fi;
+
     elif [[ $OS == 'Darwin' ]]; then
         ## osx only
         alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
