@@ -106,6 +106,7 @@ alias vimrc="vim ~/.vimrc"
 alias aliases="$EDITOR ~/.aliases"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias ualiases="(cd ~;git add ~/.aliases; git commit -m 'aliases updated';git push origin master;)"
+alias zshconfig="$EDITOR ~/.zshrc"
 alias sourceme="source ~/.zshrc"
 
     ## node
