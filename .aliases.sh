@@ -35,6 +35,16 @@ export EDITOR='vim' #default
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -48,6 +58,7 @@ alias scpTo10="scp $1 cdieringer@neweb10:~/"
 alias scpTo10f="scp -r $1 cdieringer@neweb10:~/"
 alias scpFrom10="scp cdieringer@neweb10:~/$1 ~/Desktop/"
 alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
+alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 
 # git
 alias gs="git status"
@@ -104,10 +115,7 @@ alias untar="tar -xvf $1"
 
 alias vimrc="vim ~/.vimrc"
 alias aliases="$EDITOR ~/.aliases"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias ualiases="(cd ~;git add ~/.aliases; git commit -m 'aliases updated';git push origin master;)"
-alias zshconfig="$EDITOR ~/.zshrc"
-alias sourceme="source ~/.zshrc"
 
     ## node
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
@@ -132,6 +140,15 @@ killa () {
     screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
+
+if [ -n "${BASH_VERSION}" ]; then
+    alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+    alias sourceme="source ~/.zshrc" 
+    alias zshconfig="$EDITOR ~/.zshrc"
+elif [ -n "${ZSH_VERSION}" ]; then 
+    alias sourceme="source ~/.bash_profile"
+    alias bashconfig="$EDITOR ~/.bash_profile"
+fi
 
 # Get weird
 echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit"

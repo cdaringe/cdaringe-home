@@ -81,3 +81,5 @@ export PATH="$PATH:/usr/local/lib/node_modules/karma/bin"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+#
+`git config --global color.ui auto`
