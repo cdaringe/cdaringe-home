@@ -114,8 +114,8 @@ alias untar="tar -xvf $1"
     fi
 
 alias vimrc="vim ~/.vimrc"
-alias aliases="$EDITOR ~/.aliases"
-alias ualiases="(cd ~;git add ~/.aliases; git commit -m 'aliases updated';git push origin master;)"
+alias aliases="$EDITOR ~/.aliases.sh"
+alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;)"
 
     ## node
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
@@ -141,11 +141,11 @@ killa () {
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
 
-if [ -n "${BASH_VERSION}" ]; then
+if [ -n "${ZSH_VERSION}" ]; then 
     alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
     alias sourceme="source ~/.zshrc" 
     alias zshconfig="$EDITOR ~/.zshrc"
-elif [ -n "${ZSH_VERSION}" ]; then 
+elif [ -n "${BASH_VERSION}" ]; then
     alias sourceme="source ~/.bash_profile"
     alias bashconfig="$EDITOR ~/.bash_profile"
 fi
