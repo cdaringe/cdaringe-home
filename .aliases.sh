@@ -116,7 +116,7 @@ alias untar="tar -xvf $1"
 
 alias vimrc="vim ~/.vimrc"
 alias aliases="$EDITOR ~/.aliases.sh"
-alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;)"
+alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 
     ## node
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
