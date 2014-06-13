@@ -87,7 +87,7 @@ alias untar="tar -xvf $1"
         alias serverstart="sudo /sbin/service httpd start"
 
         #php
-        alias phpini="sudo vim /etc/php.ini"
+        alias phpini="sudo $EDITOR /etc/php.ini"
 
     elif [[ $OS == 'Darwin' ]]; then
         ## osx only
