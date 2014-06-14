@@ -30,6 +30,7 @@ esac
 
 # config
 export EDITOR='vim' #default
+alias dbmap="$EDITOR /var/lib/coins_auth/conn/dbmap.json"
 
 ## file
 alias gcb='git checkout -b'
@@ -92,7 +93,7 @@ alias untar="tar -xvf $1"
         alias serverstart="sudo /sbin/service httpd start"
 
         #php
-        alias phpini="sudo vim /etc/php.ini"
+        alias phpini="sudo $EDITOR /etc/php.ini"
 
     elif [[ $OS == 'Darwin' ]]; then
         ## osx only
@@ -120,7 +121,7 @@ alias untar="tar -xvf $1"
 
 alias vimrc="vim ~/.vimrc"
 alias aliases="$EDITOR ~/.aliases.sh"
-alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;)"
+alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 
     ## node
     export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
