@@ -32,6 +32,11 @@ esac
 export EDITOR='vim' #default
 
 ## file
+alias gcb='git checkout -b'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
@@ -118,6 +123,7 @@ alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;)"
 
     ## node
+    export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
     alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
     
