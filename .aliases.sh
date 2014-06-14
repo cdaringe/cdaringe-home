@@ -68,12 +68,15 @@ alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl
 
 # git
 alias gs="git status"
+alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
+alias gpushm="git push origin develop"
 alias gpushd="git push origin develop"
 alias gpush="git push origin $1"
-alias gp="git pull origin $1"
-alias gcm="git commit -a -m $1"
+alias gp="git pull"
+alias gcm="git commit -am $1"
 alias gbl="git branch --list"
+alias gba="git branch --list -a"
 function gcr() {
   echo "git checkout -b $1 origin/$1";
   echo `git checkout -b $1 origin/$1`;
