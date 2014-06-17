@@ -110,6 +110,7 @@ alias untar="tar -xvf $1"
         if [[ ! -f //usr/local/bin/sublime ]]; then
           echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
         fi
+        export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
     elif [[ $OS == 'ubuntu' ]]; then
         alias serverconf="sudo vim /etc/apache2/sites-enabled/000-default"
         alias siteconf="sudo vim /etc/apache2/envvars"
@@ -128,6 +129,7 @@ alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git
 
     ## node
     export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
+    export PATH=/home/$USER/node/:$PATH
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
     alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
     
