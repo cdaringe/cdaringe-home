@@ -1,3 +1,4 @@
 # track only basic config files
 .secrets
 .DS_Store
+.viminfo
