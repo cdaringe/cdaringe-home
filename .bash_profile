@@ -110,3 +110,4 @@ if ! shopt -oq posix; then
 fi
 
 `git config --global color.ui auto`
+export PATH=/usr/local/sbin:$PATH

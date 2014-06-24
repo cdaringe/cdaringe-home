@@ -53,7 +53,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx colorize mosh fasd bower node npm brew)
+plugins=(git  osx colorize mosh fasd bower node npm brew)
 # zstyle ':completion:*' accept-exact '*(N)'
 # zstyle ':completion:*' use-cache on
 # zstyle ':completion:*' cache-path ~/.zsh/cache
@@ -66,7 +66,7 @@ source $HOME/.dbfuncs.sh
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
 export PATH="$PATH:/usr/local/lib/node_modules/karma/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -85,3 +85,9 @@ export PATH="$PATH:/usr/local/lib/node_modules/karma/bin"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
 `git config --global color.ui auto`
+export PATH=/usr/local/sbin:$PATH
+
+#python
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
