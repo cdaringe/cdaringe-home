@@ -88,8 +88,8 @@ alias untar="tar -xvf $1"
 #** SERVER **#
     if [[ $OS == 'centos' ]]; then
         ## apache
-        alias serverconf="sudo vim /etc/httpd/conf/httpd.conf"
-        alias sslconf="sudo vim /etc/httpd/conf.d/ssl.conf"
+        alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
+        alias sslconf="sudo $EDITOR /etc/httpd/conf.d/ssl.conf"
         
         alias serverrestart="sudo /sbin/service httpd restart"
         alias serverstop="sudo /sbin/service httpd stop"
@@ -112,18 +112,21 @@ alias untar="tar -xvf $1"
         fi
         export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
     elif [[ $OS == 'ubuntu' ]]; then
-        alias serverconf="sudo vim /etc/apache2/sites-enabled/000-default"
-        alias siteconf="sudo vim /etc/apache2/envvars"
+        alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
+        alias siteconf="sudo $EDITOR /etc/apache2/envvars"
     
         alias serverrestart="sudo /etc/init.d/apache2 restart"
         alias serverstop="sudo /etc/init.d/apache2 stop"
         alias serverstart="sudo /etc/init.d/apache2 start"
 
         #php
-        alias phpini="sudo vim /etc/php5/apache2/php.ini"
+        alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
     fi
 
+# vim
 alias vimrc="vim ~/.vimrc"
+alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
+
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 
