@@ -31,6 +31,7 @@ esac
 # config
 export EDITOR='vim' #default
 alias dbmap="$EDITOR /var/lib/coins_auth/conn/dbmap.json"
+alias dbf="cd /var/lib/coins_auth/conn"
 
 ## file
 alias purgedir="rm -rf .* *"
