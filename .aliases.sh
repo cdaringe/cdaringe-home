@@ -34,6 +34,11 @@ alias dbmap="$EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
 
 ## file
+alias gcb='git checkout -b'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
@@ -64,12 +69,15 @@ alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl
 
 # git
 alias gs="git status"
+alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
+alias gpushm="git push origin develop"
 alias gpushd="git push origin develop"
 alias gpush="git push origin $1"
-alias gp="git pull origin $1"
-alias gcm="git commit -a -m $1"
+alias gp="git pull"
+alias gcm="git commit -am $1"
 alias gbl="git branch --list"
+alias gba="git branch --list -a"
 function gcr() {
   echo "git checkout -b $1 origin/$1";
   echo `git checkout -b $1 origin/$1`;
@@ -81,8 +89,8 @@ alias untar="tar -xvf $1"
 #** SERVER **#
     if [[ $OS == 'centos' ]]; then
         ## apache
-        alias serverconf="sudo vim /etc/httpd/conf/httpd.conf"
-        alias sslconf="sudo vim /etc/httpd/conf.d/ssl.conf"
+        alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
+        alias sslconf="sudo $EDITOR /etc/httpd/conf.d/ssl.conf"
         
         alias serverrestart="sudo /sbin/service httpd restart"
         alias serverstop="sudo /sbin/service httpd stop"
@@ -103,23 +111,29 @@ alias untar="tar -xvf $1"
         if [[ ! -f //usr/local/bin/sublime ]]; then
           echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
         fi
+        export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
     elif [[ $OS == 'ubuntu' ]]; then
-        alias serverconf="sudo vim /etc/apache2/sites-enabled/000-default"
-        alias siteconf="sudo vim /etc/apache2/envvars"
+        alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
+        alias siteconf="sudo $EDITOR /etc/apache2/envvars"
     
         alias serverrestart="sudo /etc/init.d/apache2 restart"
         alias serverstop="sudo /etc/init.d/apache2 stop"
         alias serverstart="sudo /etc/init.d/apache2 start"
 
         #php
-        alias phpini="sudo vim /etc/php5/apache2/php.ini"
+        alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
     fi
 
+# vim
 alias vimrc="vim ~/.vimrc"
+alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
+
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 
     ## node
+    export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
+    export PATH=/home/$USER/node/:$PATH
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
     alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
     
