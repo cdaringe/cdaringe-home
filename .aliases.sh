@@ -125,7 +125,7 @@ alias untar="tar -xvf $1"
     fi
 
 # vim
-alias vimrc="vim ~/.vimrc"
+alias vimrc="$EDITOR ~/.vimrc"
 alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 
 alias aliases="$EDITOR ~/.aliases.sh"
