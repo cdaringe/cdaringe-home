@@ -20,7 +20,7 @@ udb ()
   echo "dbname: $DBNAME"
   echo "port: 5432"
   echo "file: $FILENAME"
-  echo "===="
+  echo "== = = = =="
   liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=${FILENAME} --defaultSchemaName=mrsdba --logLevel=info update
 }
 
@@ -44,7 +44,7 @@ rdb ()
   echo "dbname: $DBNAME"
   echo "port: 5432"
   echo "file: $FILENAME"
-  echo "===="
+  echo '== = = =  =='
   liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$1 --logLevel=info --defaultSchemaName=mrsdba rollbackCount 99
 }
 
