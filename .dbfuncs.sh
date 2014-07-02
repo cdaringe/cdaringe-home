@@ -2,39 +2,64 @@
 # REQUIRES THAT YOU HAVE A .secrets file in your ~ dir!
 . ~/.secrets
 
-# update database
-updatedb () 
+# updates the database
+# @param {string} filename - .xml/.json liquibase file describing changes
+# @param {string} dbname - database name
+udb () 
 {
   USERNAME="ni_developers"
   PASSWORD=$dbpass
   DBHOST="nirepdb"
-  DBNAME=$1
+  DBNAME=$2
   PORT="5432"
-  FILENAME=$2
+  FILENAME=$1
 
-  # if [ "$db" == "cddev" ]; then
-  # fi
-
-  echo "Validating ${FILENAME} on ${DBNAME}!"
-  echo 'liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae  --defaultSchemaName=mrsdba --logLevel=info validate'
-  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae  --defaultSchemaName=mrsdba --logLevel=info validate
-  echo "Updating ${DBHOST}:${DBNAME}"
-  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$filenmae --defaultSchemaName=mrsdba --logLevel=info update
-  echo ""
-  echo "Done"
+  echo "=== Update DB Request ==="
+  echo "username: $USERNAME"
+  echo "host: $DBHOST"
+  echo "dbname: $DBNAME"
+  echo "port: 5432"
+  echo "file: $FILENAME"
+  echo "== = = = =="
+  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=${FILENAME} --defaultSchemaName=mrsdba --logLevel=info update
 }
 
-rollbackdb () 
+
+
+# rollsback the database
+# @param {string} filename - .xml/.json liquibase file describing changes
+# @param {string} dbname - database name
+rdb () 
 {
   USERNAME="ni_developers"
   PASSWORD=$dbpass
   DBHOST="nirepdb"
-  DBNAME=$db
+  DBNAME=$2
   PORT="5432"
-  FILENAME=$filename
+  FILENAME=$1
 
-  echo "Rolling back ${DBHOST}:${DBNAME}"
-  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$1 --logLevel=debug --defaultSchemaName=mrsdba rollbackCount 99
-  echo ""
-  echo "Done"
+  echo "=== Rollback DB Request ==="
+  echo "username: $USERNAME"
+  echo "host: $DBHOST"
+  echo "dbname: $DBNAME"
+  echo "port: 5432"
+  echo "file: $FILENAME"
+  echo '== = = =  =='
+  liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$1 --logLevel=info --defaultSchemaName=mrsdba rollbackCount 99
 }
+
+
+# Performans rdb then udb with args passed.  Note: rdb & udb expect same parameters
+rudb() {
+    `rdb "$@"`
+    `udb "$@"` # pass all args from this function into child func
+}
+
+
+
+# Performans udb then rdb with args passed.  Note: rdb & udb expect same parameters
+urdb() {
+    `udb "$@"`
+    `rdb "$@"` # pass all args from this function into child func
+}
+

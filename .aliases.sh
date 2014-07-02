@@ -31,6 +31,7 @@ esac
 # config
 export EDITOR='vim' #default
 alias dbmap="$EDITOR /var/lib/coins_auth/conn/dbmap.json"
+alias dbf="cd /var/lib/coins_auth/conn"
 
 ## file
 alias gcb='git checkout -b'
@@ -141,11 +142,14 @@ alias untar="tar -xvf $1"
     fi
 
 # vim
-alias vimrc="vim ~/.vimrc"
+alias vimrc="$EDITOR ~/.vimrc"
 alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
+alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
+alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc; git commit -m 'Config updates';git push origin master;sourceme)"
+
 
     ## node
     export PATH=$PATH:$HOME/bin:/usr/local/bin/npm

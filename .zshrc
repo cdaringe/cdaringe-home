@@ -66,7 +66,9 @@ source $HOME/.dbfuncs.sh
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
 export PATH="$PATH:/usr/local/lib/node_modules/karma/bin"
+export PATH=$PATH:$JAVA_HOME/bin:/opt/liquibase
 export MANPATH="/usr/local/man:$MANPATH"
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
