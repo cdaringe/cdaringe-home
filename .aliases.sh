@@ -99,12 +99,29 @@ alias untar="tar -xvf $1"
         alias phpini="sudo $EDITOR /etc/php.ini"
 
     elif [[ $OS == 'Darwin' ]]; then
+        export EDITOR="sublime"
         ## osx only
         alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
         alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
         alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
         alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
         
+        # assume Mavericks
+        alias serverconf="sudo $EDITOR /private/etc/apache2/httpd.conf"
+        alias servervhosts="sudo $EDITOR /private/etc/apache2/extra/httpd-vhosts.conf"
+        alias hosts="sudo $EDITOR /private/etc/hosts"
+
+        alias serverrestart="sudo apachectl restart"
+        alias serverstop="sudo apachectl stop"
+        alias serverstart="sudo apachectl start"
+        alias serververify="sudo apachectl -t"
+
+        adduser() {
+            sudo dseditgroup -o edit -a $1 -t user $2
+        }
+
+        alias phpini="sudo $EDITOR /private/etc/php.ini.default"
+
         #set sublime to default editor. gen symlink for executing via cmd line
         if [ "$EDITOR" != 'sublime' ]; then export EDITOR='sublime'; fi;
         if [[ ! -f //usr/local/bin/sublime ]]; then
