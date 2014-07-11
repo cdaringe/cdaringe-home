@@ -1,10 +1,9 @@
 set nocompatible  " be iMproved, required
-set directory=$HOME/.vim/swapfiles/
+" set directory=$HOME/.vim/swapfiles/
 
 "pathogen - enable easy install of modules in ~/.vim/bundles dir
+execute pathogen#infect('bundle/{}', '~/src/vim/bundle/{}', 'plugin/{}')
 filetype off
-execute pathogen#infect()
-call pathogen#helptags()
 filetype plugin indent on
 
 "environment settings
@@ -24,8 +23,9 @@ nnoremap <D-up> :resize -5<cr>
 nnoremap <D-right> :vertical resize +5<cr>
 :nmap <C-N><C-N> :set invnumber<CR>
 
-" let g:vdebug_keymap['run'] = '<C-s>'
+:map <C-F2> :echo 'Current time is ' . strftime('%c')<CR>
+let g:dbgPavimPort = 9009
+let g:dbgPavimBreakAtEntry = 0
 
-"post-processing
 :%s/\s\+$//e "purge all trailing whitespace
 
