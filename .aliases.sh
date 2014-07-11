@@ -108,6 +108,11 @@ alias untar="tar -xvf $1"
         #php
         alias phpini="sudo $EDITOR /etc/php.ini"
 
+        # ops
+        if [ -n $(which useradd) ]; then
+            export PATH=/usr/sbin:$PATH
+        fi;
+
     elif [[ $OS == 'Darwin' ]]; then
         export EDITOR="sublime"
         ## osx only
