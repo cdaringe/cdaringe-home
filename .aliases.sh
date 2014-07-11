@@ -32,6 +32,8 @@ esac
 export EDITOR='vim' #default
 alias dbmap="$EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
+alias gozsh="chsh -s $(which zsh) $USER"
+alias gobash="chsh -s $(which bash) $USER"
 
 ## file
 alias gcb='git checkout -b'
@@ -78,6 +80,7 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
+alias gconfigme="`git config --global user.email \"$EMAIL\"`;`git config --global user.name \"$GITUSERNAME\"`"
 function gcr() {
   echo "git checkout -b $1 origin/$1";
   echo `git checkout -b $1 origin/$1`;
