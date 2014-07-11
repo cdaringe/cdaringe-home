@@ -109,7 +109,7 @@ alias untar="tar -xvf $1"
         alias phpini="sudo $EDITOR /etc/php.ini"
 
         # ops
-        if [ -n $(which useradd) ]; then
+        if [ -n $(which adduser) ]; then
             export PATH=/usr/sbin:$PATH
         fi;
 
