@@ -80,7 +80,13 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
-alias gconfigme="`git config --global user.email \"$EMAIL\"`;`git config --global user.name \"$GITUSERNAME\"`"
+function gconfigme() {
+    echo "Setting git config params"; 
+    echo "git config --global user.name \"$GITUSERNAME\"";
+    echo `git config --global user.name \"$GITUSERNAME\"`;
+    echo "git config --global user.email \"$EMAIL\""; 
+    echo `git config --global user.email \"$EMAIL\"`;
+}
 function gcr() {
   echo "git checkout -b $1 origin/$1";
   echo `git checkout -b $1 origin/$1`;
