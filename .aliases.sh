@@ -69,6 +69,7 @@ alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl
 
 # git
 alias gs="git status"
+alias gd="git diff"
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
 alias gpushm="git push origin develop"
