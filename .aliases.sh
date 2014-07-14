@@ -200,5 +200,5 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 # Get weird
-echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit"
+echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit"
 alias ceez='echo ceez on my knees, baby please'
