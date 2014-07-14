@@ -35,7 +35,11 @@ alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
 
-## file
+# sys
+alias sudoers="sudo vim /etc/sudoers"
+alias useradd="echo \"Did you mean to perform adduser?\""
+
+# file
 alias gcb='git checkout -b'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -80,7 +84,14 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
-alias gconfigme="`git config --global user.email "$EMAIL"` && `git config --global user.name "$GITUSERNAME"`"
+=======
+function gconfigme() {
+    echo "Setting git config params"; 
+    echo "git config --global user.name \"$GITUSERNAME\"";
+    echo `git config --global user.name \"$GITUSERNAME\"`;
+    echo "git config --global user.email \"$EMAIL\""; 
+    echo `git config --global user.email \"$EMAIL\"`;
+}
 function gcr() {
   echo "git checkout -b $1 origin/$1";
   echo `git checkout -b $1 origin/$1`;
@@ -190,5 +201,5 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 # Get weird
-echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit"
+echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit"
 alias ceez='echo ceez on my knees, baby please'
