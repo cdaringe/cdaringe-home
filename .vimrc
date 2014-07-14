@@ -7,12 +7,13 @@ filetype off
 filetype plugin indent on
 
 "environment settings
+set fileformat=unix
 set backspace=indent,eol,start
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set number
-set background=light
+set background=dark
 syntax on
 colorscheme solarized
 
