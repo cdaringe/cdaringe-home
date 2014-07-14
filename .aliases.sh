@@ -30,12 +30,16 @@ esac
 
 # config
 export EDITOR='vim' #default
-alias dbmap="$EDITOR /var/lib/coins_auth/conn/dbmap.json"
+alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
 
-## file
+# sys
+alias sudoers="sudo vim /etc/sudoers"
+alias useradd="echo \"Did you mean to perform adduser?\""
+
+# file
 alias gcb='git checkout -b'
 alias ..="cd .."
 alias ...="cd ../.."
