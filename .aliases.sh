@@ -30,12 +30,16 @@ esac
 
 # config
 export EDITOR='vim' #default
-alias dbmap="$EDITOR /var/lib/coins_auth/conn/dbmap.json"
+alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
 
-## file
+# sys
+alias sudoers="sudo vim /etc/sudoers"
+alias useradd="echo \"Did you mean to perform adduser?\""
+
+# file
 alias gcb='git checkout -b'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -107,11 +111,6 @@ alias untar="tar -xvf $1"
 
         #php
         alias phpini="sudo $EDITOR /etc/php.ini"
-
-        # ops
-        if [ -n $(which useradd) ]; then
-            export PATH=/usr/sbin:$PATH
-        fi;
 
     elif [[ $OS == 'Darwin' ]]; then
         export EDITOR="sublime"
@@ -201,5 +200,5 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 # Get weird
-echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit"
+echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit"
 alias ceez='echo ceez on my knees, baby please'
