@@ -84,7 +84,7 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
-=======
+
 function gconfigme() {
     echo "Setting git config params"; 
     echo "git config --global user.name \"$GITUSERNAME\"";
