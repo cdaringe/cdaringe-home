@@ -33,9 +33,16 @@ esac
 
 # config
 export EDITOR='vim' #default
-alias dbmap="$EDITOR /var/lib/coins_auth/conn/dbmap.json"
+alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
+alias dbf="cd /var/lib/coins_auth/conn"
+alias gozsh="chsh -s $(which zsh) $USER"
+alias gobash="chsh -s $(which bash) $USER"
 
-## file
+# sys
+alias sudoers="sudo vim /etc/sudoers"
+alias useradd="echo \"Did you mean to perform adduser?\""
+
+# file
 alias gcb='git checkout -b'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -80,6 +87,14 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
+
+function gconfigme() {
+    echo "Setting git config params"; 
+    echo "git config --global user.name \"$GITUSERNAME\"";
+    echo `git config --global user.name \"$GITUSERNAME\"`;
+    echo "git config --global user.email \"$EMAIL\""; 
+    echo `git config --global user.email \"$EMAIL\"`;
+}
 function gcr() {
   echo "git checkout -b $1 origin/$1";
   echo `git checkout -b $1 origin/$1`;
@@ -89,6 +104,7 @@ function gcr() {
 alias untar="tar -xvf $1"
 
 #** SERVER **#
+<<<<<<< HEAD
 if [[ $OS == 'centos' ]]; then
     ## apache
     alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
@@ -115,6 +131,60 @@ elif [[ $OS == 'Darwin' ]]; then
     if [[ ! -f //usr/local/bin/sublime ]]; then
         echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
     fi
+    if [[ $OS == 'centos' ]]; then
+        ## apache
+        alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
+        alias sslconf="sudo $EDITOR /etc/httpd/conf.d/ssl.conf"
+        
+        alias serverrestart="sudo /sbin/service httpd restart"
+        alias serverstop="sudo /sbin/service httpd stop"
+        alias serverstart="sudo /sbin/service httpd start"
+
+        #php
+        alias phpini="sudo $EDITOR /etc/php.ini"
+
+    elif [[ $OS == 'Darwin' ]]; then
+        export EDITOR="sublime"
+        ## osx only
+        alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
+        alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
+        alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
+        alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
+        
+        # assume Mavericks
+        alias serverconf="sudo $EDITOR /private/etc/apache2/httpd.conf"
+        alias servervhosts="sudo $EDITOR /private/etc/apache2/extra/httpd-vhosts.conf"
+        alias hosts="sudo $EDITOR /private/etc/hosts"
+
+        alias serverrestart="sudo apachectl restart"
+        alias serverstop="sudo apachectl stop"
+        alias serverstart="sudo apachectl start"
+        alias serververify="sudo apachectl -t"
+
+        adduser() {
+            sudo dseditgroup -o edit -a $1 -t user $2
+        }
+
+        alias phpini="sudo $EDITOR /private/etc/php.ini.default"
+
+        #set sublime to default editor. gen symlink for executing via cmd line
+        if [ "$EDITOR" != 'sublime' ]; then export EDITOR='sublime'; fi;
+        if [[ ! -f //usr/local/bin/sublime ]]; then
+          echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
+        fi
+        export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
+    elif [[ $OS == 'ubuntu' ]]; then
+        alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
+        alias siteconf="sudo $EDITOR /etc/apache2/envvars"
+    
+        alias serverrestart="sudo /etc/init.d/apache2 restart"
+        alias serverstop="sudo /etc/init.d/apache2 stop"
+        alias serverstart="sudo /etc/init.d/apache2 start"
+
+        #php
+        alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
+>>>>>>> 1948c5e86d5ec2e4dc438104d82a7cdf32399977
+    fi
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
 elif [[ $OS == 'ubuntu' ]]; then
     alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
@@ -131,11 +201,14 @@ elif [[ $OS == 'arch' ]]; then
 fi
 
 # vim
-alias vimrc="vim ~/.vimrc"
+alias vimrc="$EDITOR ~/.vimrc"
 alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
+alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
+alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc .vimrc; git commit -m 'Config updates';git push origin master;sourceme)"
+
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
@@ -173,5 +246,4 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 # Get weird
-echo "CHA-CHING! Ceez is runnin' $OS $VER $BITS -bit ($ARCTCTR)"
-alias ceez='echo ceez on my knees, baby please'
+echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit ($ARCTCTR)"
