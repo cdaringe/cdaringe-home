@@ -12,7 +12,7 @@ elif [ -f /etc/yum.conf ]; then
     OS=centos
     VER=crappy-version
 elif [ -f /bin/pacman ]; then
-    OS=arch
+    OS="arch"
     VER="?"
 else
     OS=$(uname -s)
@@ -104,7 +104,6 @@ function gcr() {
 alias untar="tar -xvf $1"
 
 #** SERVER **#
-<<<<<<< HEAD
 if [[ $OS == 'centos' ]]; then
     ## apache
     alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
@@ -118,11 +117,28 @@ if [[ $OS == 'centos' ]]; then
     alias phpini="sudo $EDITOR /etc/php.ini"
 
 elif [[ $OS == 'Darwin' ]]; then
+    export EDITOR="sublime"
     ## osx only
     alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
     alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
     alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
     alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
+
+    # assume Mavericks
+    alias serverconf="sudo $EDITOR /private/etc/apache2/httpd.conf"
+    alias servervhosts="sudo $EDITOR /private/etc/apache2/extra/httpd-vhosts.conf"
+    alias hosts="sudo $EDITOR /private/etc/hosts"
+
+    alias serverrestart="sudo apachectl restart"
+    alias serverstop="sudo apachectl stop"
+    alias serverstart="sudo apachectl start"
+    alias serververify="sudo apachectl -t"
+
+    adduser() {
+        sudo dseditgroup -o edit -a $1 -t user $2
+    }
+
+    alias phpini="sudo $EDITOR /private/etc/php.ini.default"
 
     #set sublime to default editor. gen symlink for executing via cmd line
     if [ "$EDITOR" != 'sublime' ]; then 
@@ -131,61 +147,8 @@ elif [[ $OS == 'Darwin' ]]; then
     if [[ ! -f //usr/local/bin/sublime ]]; then
         echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
     fi
-    if [[ $OS == 'centos' ]]; then
-        ## apache
-        alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
-        alias sslconf="sudo $EDITOR /etc/httpd/conf.d/ssl.conf"
-        
-        alias serverrestart="sudo /sbin/service httpd restart"
-        alias serverstop="sudo /sbin/service httpd stop"
-        alias serverstart="sudo /sbin/service httpd start"
-
-        #php
-        alias phpini="sudo $EDITOR /etc/php.ini"
-
-    elif [[ $OS == 'Darwin' ]]; then
-        export EDITOR="sublime"
-        ## osx only
-        alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
-        alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
-        alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
-        alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
-        
-        # assume Mavericks
-        alias serverconf="sudo $EDITOR /private/etc/apache2/httpd.conf"
-        alias servervhosts="sudo $EDITOR /private/etc/apache2/extra/httpd-vhosts.conf"
-        alias hosts="sudo $EDITOR /private/etc/hosts"
-
-        alias serverrestart="sudo apachectl restart"
-        alias serverstop="sudo apachectl stop"
-        alias serverstart="sudo apachectl start"
-        alias serververify="sudo apachectl -t"
-
-        adduser() {
-            sudo dseditgroup -o edit -a $1 -t user $2
-        }
-
-        alias phpini="sudo $EDITOR /private/etc/php.ini.default"
-
-        #set sublime to default editor. gen symlink for executing via cmd line
-        if [ "$EDITOR" != 'sublime' ]; then export EDITOR='sublime'; fi;
-        if [[ ! -f //usr/local/bin/sublime ]]; then
-          echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
-        fi
-        export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
-    elif [[ $OS == 'ubuntu' ]]; then
-        alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
-        alias siteconf="sudo $EDITOR /etc/apache2/envvars"
-    
-        alias serverrestart="sudo /etc/init.d/apache2 restart"
-        alias serverstop="sudo /etc/init.d/apache2 stop"
-        alias serverstart="sudo /etc/init.d/apache2 start"
-
-        #php
-        alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
->>>>>>> 1948c5e86d5ec2e4dc438104d82a7cdf32399977
-    fi
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
+
 elif [[ $OS == 'ubuntu' ]]; then
     alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
     alias siteconf="sudo $EDITOR /etc/apache2/envvars"
@@ -196,7 +159,7 @@ elif [[ $OS == 'ubuntu' ]]; then
 
     #php
     alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
-elif [[ $OS == 'arch' ]]; then
+elif [[ $OS == "arch" ]]; then
     restartssh="sudo systemctl restart sshd"
 fi
 
