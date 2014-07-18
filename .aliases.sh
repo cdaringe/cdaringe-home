@@ -160,6 +160,7 @@ elif [[ $OS == 'ubuntu' ]]; then
     #php
     alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
 elif [[ $OS == "arch" ]]; then
+    fail2banconf="sudo vim /etc/fail2ban/jail.conf"
     restartssh="sudo systemctl restart sshd"
 fi
 
