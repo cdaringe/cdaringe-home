@@ -7,6 +7,7 @@ filetype off
 filetype plugin indent on
 
 "environment settings
+set fileformat=unix
 set backspace=indent,eol,start
 set tabstop=4
 set shiftwidth=4
