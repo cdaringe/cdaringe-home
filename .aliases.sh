@@ -85,10 +85,10 @@ alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
 function gconfigme() {
-    echo "Setting git config params"; 
+    echo "Setting git config params";
     echo "git config --global user.name \"$GITUSERNAME\"";
     echo `git config --global user.name \"$GITUSERNAME\"`;
-    echo "git config --global user.email \"$EMAIL\""; 
+    echo "git config --global user.email \"$EMAIL\"";
     echo `git config --global user.email \"$EMAIL\"`;
 }
 function gcr() {
@@ -100,11 +100,12 @@ function gcr() {
 alias untar="tar -xvf $1"
 
 #** SERVER **#
+alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
     if [[ $OS == 'centos' ]]; then
         ## apache
         alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
         alias sslconf="sudo $EDITOR /etc/httpd/conf.d/ssl.conf"
-        
+
         alias serverrestart="sudo /sbin/service httpd restart"
         alias serverstop="sudo /sbin/service httpd stop"
         alias serverstart="sudo /sbin/service httpd start"
@@ -124,7 +125,7 @@ alias untar="tar -xvf $1"
         alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
         alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
         alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
-        
+
         # assume Mavericks
         alias serverconf="sudo $EDITOR /private/etc/apache2/httpd.conf"
         alias servervhosts="sudo $EDITOR /private/etc/apache2/extra/httpd-vhosts.conf"
@@ -150,7 +151,7 @@ alias untar="tar -xvf $1"
     elif [[ $OS == 'ubuntu' ]]; then
         alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
         alias siteconf="sudo $EDITOR /etc/apache2/envvars"
-    
+
         alias serverrestart="sudo /etc/init.d/apache2 restart"
         alias serverstop="sudo /etc/init.d/apache2 stop"
         alias serverstart="sudo /etc/init.d/apache2 start"
@@ -174,7 +175,7 @@ alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc .vimrc; g
     export PATH=/home/$USER/node/:$PATH
     alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
     alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
-    
+
     ## httpster
     alias httpup="httpster /Users/cdieringer/ &"
     alias httpdown="kill $(ps aux | grep '[h]ttpster' | awk '{print $2}')"
@@ -195,9 +196,9 @@ killa () {
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
 
-if [ -n "${ZSH_VERSION}" ]; then 
+if [ -n "${ZSH_VERSION}" ]; then
     alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-    alias sourceme="source ~/.zshrc" 
+    alias sourceme="source ~/.zshrc"
     alias zshconfig="$EDITOR ~/.zshrc"
 elif [ -n "${BASH_VERSION}" ]; then
     alias sourceme="source ~/.bash_profile"
