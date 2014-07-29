@@ -6,12 +6,12 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="random"
+# ZSH_THEME="random"
 # ZSH_THEME="avit"
 # ZSH_THEME="agnoster"
 # sunaku
-# jonathan ## great horitzontal line breaks and colors
-# terminalparty ## clean git stuff to the right, no lefthand bloat. and colors
+# ZSH_THEME="jonathan" ## great horitzontal line breaks and colors
+ZSH_THEME=terminalparty ## clean git stuff to the right, no lefthand bloat. and colors
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
