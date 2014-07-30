@@ -65,6 +65,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+## database
+alias pglogon="sudo -u postgres psql"
+
 ## remote
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
 alias ssh10="ssh neweb10 -t screen"
