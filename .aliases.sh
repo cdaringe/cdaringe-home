@@ -121,9 +121,7 @@ if [[ $OS == 'centos' ]]; then
     alias phpini="sudo $EDITOR /etc/php.ini"
 
     # ops
-    if [ -n $(which adduser) ]; then
-        export PATH=/usr/sbin:$PATH
-    fi;
+    export PATH=/usr/sbin:$PATH
 
 elif [[ $OS == 'Darwin' ]]; then
     export EDITOR="sublime"
