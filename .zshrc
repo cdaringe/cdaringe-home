@@ -95,3 +95,6 @@ export PROJECT_HOME=$HOME/Devel
 if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
+if [ -f "~/.nvm/nvm.sh" ]; then
+    source ~/.nvm/nvm.sh
+fi
