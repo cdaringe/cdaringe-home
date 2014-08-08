@@ -94,7 +94,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
     source /usr/local/bin/virtualenvwrapper.sh
+    echo "...python virtual environment loaded";
 fi
-if [ -f "~/.nvm/nvm.sh" ]; then
+if [ -f "$HOME/.nvm/nvm.sh" ]; then
     source ~/.nvm/nvm.sh
+    echo "...nvm loaded";
 fi
