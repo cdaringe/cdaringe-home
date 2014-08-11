@@ -99,4 +99,5 @@ fi
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
     source ~/.nvm/nvm.sh
     echo "...nvm loaded";
+    `nvm use 0.10.30`
 fi
