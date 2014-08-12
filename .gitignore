@@ -1,4 +1,6 @@
 # track only basic config files
+.zsh-update
 .secrets
 .DS_Store
 .viminfo
+

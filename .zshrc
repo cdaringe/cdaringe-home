@@ -6,12 +6,12 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="random"
+# ZSH_THEME="random"
 # ZSH_THEME="avit"
 # ZSH_THEME="agnoster"
 # sunaku
-# jonathan ## great horitzontal line breaks and colors
-# terminalparty ## clean git stuff to the right, no lefthand bloat. and colors
+# ZSH_THEME="jonathan" ## great horitzontal line breaks and colors
+ZSH_THEME=terminalparty ## clean git stuff to the right, no lefthand bloat. and colors
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -92,4 +92,12 @@ export PATH=/usr/local/sbin:$PATH
 #python
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+    echo "...python virtual environment loaded";
+fi
+if [ -f "$HOME/.nvm/nvm.sh" ]; then
+    source ~/.nvm/nvm.sh
+    echo "...nvm loaded. Requesting nodejs 0.10.30";
+    echo `nvm use 0.10.30`;
+fi
