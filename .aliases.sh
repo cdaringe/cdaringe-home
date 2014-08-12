@@ -182,6 +182,7 @@ alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc .vimrc; g
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
 export PATH=/home/$USER/node/:$PATH
+alias nvm10="nvm use 0.10.30"
 alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
 alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
 
