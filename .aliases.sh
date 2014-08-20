@@ -43,7 +43,6 @@ alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 
 # file
-alias gcb='git checkout -b'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -51,6 +50,7 @@ alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
+alias cc="cd /var/www/html/coins_core"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -87,6 +87,10 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
+alias gcb='git checkout -b'
+alias gcd='git checkout develop'
+alias gcm='git checkout master'
+alias gd='git diff'
 
 function gconfigme() {
     echo "Setting git config params";
