@@ -65,6 +65,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+## database
+alias pglogon="sudo -u postgres psql"
+
 ## remote
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
 alias ssh10="ssh neweb10 -t screen"
@@ -183,6 +186,7 @@ alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc .vimrc; g
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
 export PATH=/home/$USER/node/:$PATH
+alias nvm10="nvm use 0.10.30"
 alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
 alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
 

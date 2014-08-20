@@ -94,4 +94,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
     source /usr/local/bin/virtualenvwrapper.sh
+    echo "...python virtual environment loaded";
+fi
+if [ -f "$HOME/.nvm/nvm.sh" ]; then
+    source ~/.nvm/nvm.sh
+    echo "...nvm loaded. Requesting nodejs 0.10.30";
+    echo `nvm use 0.10.30`;
 fi
