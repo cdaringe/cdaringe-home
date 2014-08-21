@@ -101,3 +101,8 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
     echo "...nvm loaded. Requesting nodejs 0.10.30";
     echo `nvm use 0.10.30`;
 fi
+
+#bin
+if [ -f ~/bin ]; then
+    export PATH="$PATH:$HOME/bin"
+fi
