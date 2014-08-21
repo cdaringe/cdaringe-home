@@ -136,3 +136,8 @@ else
 fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+#bin
+if [ -f ~/bin/rmate ]; then
+    export PATH="$PATH:$HOME/bin"
+fi
