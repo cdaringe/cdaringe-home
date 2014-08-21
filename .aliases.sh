@@ -219,5 +219,9 @@ elif [ -n "${BASH_VERSION}" ]; then
     alias bashconfig="$EDITOR ~/.bash_profile"
 fi
 
+#install rmate
+alias installrmate="curl -Lo ~/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && chmod a+x ~/bin/rmate && export PATH=\"$PATH:$HOME/bin\""
+# to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this 
+
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit ($ARCTCTR)"
