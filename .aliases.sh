@@ -1,5 +1,5 @@
 # Get system data
-ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+ARCTCTR=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
 if [ -f /etc/lsb-release ]; then
     . /etc/lsb-release
@@ -11,6 +11,9 @@ elif [ -f /etc/debian_version ]; then
 elif [ -f /etc/yum.conf ]; then
     OS=centos
     VER=crappy-version
+elif [ -f /bin/pacman ]; then
+    OS="arch"
+    VER="?"
 else
     OS=$(uname -s)
     VER=$(uname -r)
@@ -40,7 +43,6 @@ alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 
 # file
-alias gcb='git checkout -b'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -48,6 +50,7 @@ alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
+alias cc="cd /var/www/html/coins_core"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -61,6 +64,9 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+## database
+alias pglogon="sudo -u postgres psql"
 
 ## remote
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
@@ -84,11 +90,16 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
+alias gcb='git checkout -b'
+alias gcd='git checkout develop'
+alias gcm='git checkout master'
+alias gd='git diff'
+
 function gconfigme() {
-    echo "Setting git config params"; 
+    echo "Setting git config params";
     echo "git config --global user.name \"$GITUSERNAME\"";
     echo `git config --global user.name \"$GITUSERNAME\"`;
-    echo "git config --global user.email \"$EMAIL\""; 
+    echo "git config --global user.email \"$EMAIL\"";
     echo `git config --global user.email \"$EMAIL\"`;
 }
 function gcr() {
@@ -100,59 +111,67 @@ function gcr() {
 alias untar="tar -xvf $1"
 
 #** SERVER **#
-    if [[ $OS == 'centos' ]]; then
-        ## apache
-        alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
-        alias sslconf="sudo $EDITOR /etc/httpd/conf.d/ssl.conf"
-        
-        alias serverrestart="sudo /sbin/service httpd restart"
-        alias serverstop="sudo /sbin/service httpd stop"
-        alias serverstart="sudo /sbin/service httpd start"
+alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
+if [[ $OS == 'centos' ]]; then
+    ## apache
+    alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
+    alias sslconf="sudo $EDITOR /etc/httpd/conf.d/ssl.conf"
 
-        #php
-        alias phpini="sudo $EDITOR /etc/php.ini"
+    alias serverrestart="sudo /sbin/service httpd restart"
+    alias serverstop="sudo /sbin/service httpd stop"
+    alias serverstart="sudo /sbin/service httpd start"
 
-    elif [[ $OS == 'Darwin' ]]; then
-        export EDITOR="sublime"
-        ## osx only
-        alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
-        alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
-        alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
-        alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
-        
-        # assume Mavericks
-        alias serverconf="sudo $EDITOR /private/etc/apache2/httpd.conf"
-        alias servervhosts="sudo $EDITOR /private/etc/apache2/extra/httpd-vhosts.conf"
-        alias hosts="sudo $EDITOR /private/etc/hosts"
+    #php
+    alias phpini="sudo $EDITOR /etc/php.ini"
 
-        alias serverrestart="sudo apachectl restart"
-        alias serverstop="sudo apachectl stop"
-        alias serverstart="sudo apachectl start"
-        alias serververify="sudo apachectl -t"
+    # ops
+    export PATH=/usr/sbin:$PATH
 
-        adduser() {
-            sudo dseditgroup -o edit -a $1 -t user $2
-        }
+elif [[ $OS == 'Darwin' ]]; then
+    export EDITOR="sublime"
+    ## osx only
+    alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
+    alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
+    alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
+    alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
 
-        alias phpini="sudo $EDITOR /private/etc/php.ini.default"
+    # assume Mavericks
+    alias serverconf="sudo $EDITOR /private/etc/apache2/httpd.conf"
+    alias servervhosts="sudo $EDITOR /private/etc/apache2/extra/httpd-vhosts.conf"
+    alias hosts="sudo $EDITOR /private/etc/hosts"
 
-        #set sublime to default editor. gen symlink for executing via cmd line
-        if [ "$EDITOR" != 'sublime' ]; then export EDITOR='sublime'; fi;
-        if [[ ! -f //usr/local/bin/sublime ]]; then
-          echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
-        fi
-        export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
-    elif [[ $OS == 'ubuntu' ]]; then
-        alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
-        alias siteconf="sudo $EDITOR /etc/apache2/envvars"
-    
-        alias serverrestart="sudo /etc/init.d/apache2 restart"
-        alias serverstop="sudo /etc/init.d/apache2 stop"
-        alias serverstart="sudo /etc/init.d/apache2 start"
+    alias serverrestart="sudo apachectl restart"
+    alias serverstop="sudo apachectl stop"
+    alias serverstart="sudo apachectl start"
+    alias serververify="sudo apachectl -t"
 
-        #php
-        alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
+    adduser() {
+        sudo dseditgroup -o edit -a $1 -t user $2
+    }
+
+    alias phpini="sudo $EDITOR /private/etc/php.ini.default"
+
+    #set sublime to default editor. gen symlink for executing via cmd line
+    if [ "$EDITOR" != 'sublime' ]; then export EDITOR='sublime'; fi;
+    if [[ ! -f //usr/local/bin/sublime ]]; then
+      echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
     fi
+    export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
+elif [[ $OS == 'ubuntu' ]]; then
+    alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
+    alias siteconf="sudo $EDITOR /etc/apache2/envvars"
+
+    alias serverrestart="sudo /etc/init.d/apache2 restart"
+    alias serverstop="sudo /etc/init.d/apache2 stop"
+    alias serverstart="sudo /etc/init.d/apache2 start"
+
+    #php
+    alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
+
+elif [[ $OS == "arch" ]]; then
+    fail2banconf="sudo vim /etc/fail2ban/jail.conf"
+    restartssh="sudo systemctl restart sshd"
+fi
 
 # vim
 alias vimrc="$EDITOR ~/.vimrc"
@@ -164,15 +183,16 @@ alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
 alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc .vimrc; git commit -m 'Config updates';git push origin master;sourceme)"
 
 
-    ## node
-    export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
-    export PATH=/home/$USER/node/:$PATH
-    alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
-    alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
-    
-    ## httpster
-    alias httpup="httpster /Users/cdieringer/ &"
-    alias httpdown="kill $(ps aux | grep '[h]ttpster' | awk '{print $2}')"
+## node
+export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
+export PATH=/home/$USER/node/:$PATH
+alias nvm10="nvm use 0.10.30"
+alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
+alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
+
+## httpster
+alias httpup="httpster /Users/cdieringer/ &"
+alias httpdown="kill $(ps aux | grep '[h]ttpster' | awk '{print $2}')"
 
 ## git
 clonehere () {
@@ -190,9 +210,9 @@ killa () {
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
 
-if [ -n "${ZSH_VERSION}" ]; then 
+if [ -n "${ZSH_VERSION}" ]; then
     alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-    alias sourceme="source ~/.zshrc" 
+    alias sourceme="source ~/.zshrc"
     alias zshconfig="$EDITOR ~/.zshrc"
 elif [ -n "${BASH_VERSION}" ]; then
     alias sourceme="source ~/.bash_profile"
@@ -200,5 +220,4 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 # Get weird
-echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit"
-alias ceez='echo ceez on my knees, baby please'
+echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit ($ARCTCTR)"

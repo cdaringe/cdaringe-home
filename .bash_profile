@@ -1,5 +1,25 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # for examples
+# Get system data
+ARCTCTR=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+
+if [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+    OS=$DISTRIB_ID
+    VER=$DISTRIB_RELEASE
+elif [ -f /etc/debian_version ]; then
+    OS=ubuntu  # XXX or Ubuntu??
+    VER=$(cat /etc/debian_version)
+elif [ -f /etc/yum.conf ]; then
+    OS=centos
+    VER=crappy-version
+elif [ -f /bin/pacman ]; then
+    OS="arch"
+    VER="?"
+else
+    OS=$(uname -s)
+    VER=$(uname -r)
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -108,3 +128,11 @@ fi
 
 `git config --global color.ui auto`
 export PATH=/usr/local/sbin:$PATH
+
+if [[ $OS == 'Darwin' ]]; then
+    export NVM_DIR="/Users/cdieringer/.nvm"
+else
+    export NVM_DIR="/home/cdieringer/.nvm"
+fi
+
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
