@@ -50,9 +50,11 @@ alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
-alias cc="cd /var/www/html/coins_core"
-alias mic="cd /var/www/html/micis"
+webroot="/var/www/html"
+alias cc="cd $webroot/coins_core"
+alias mic="cd $webroot/micis"
 alias micis="mic"
+alias p2="cd $webroot/p2"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
