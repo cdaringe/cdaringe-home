@@ -90,7 +90,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export PATH=/usr/local/sbin:$PATH
 
 if [[ $OS == 'Darwin' ]]; then
-    export NVM_DIR="/Users/cdieringer/.nvm"
+    export NVM_DIR="/Users/cdaringe/.nvm"
 else
     export NVM_DIR="/home/cdieringer/.nvm"
 fi
@@ -104,9 +104,12 @@ if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
     echo "...python virtual environment loaded";
 fi
 if [ -f "$NVM_DIR/nvm.sh" ]; then
-    source ~/.nvm/nvm.sh
-    echo "...nvm loaded. Requesting nodejs 0.10.30";
-    echo `nvm use 0.10.30`;
+	source ~/.nvm/nvm.sh
+	if [[ $OS == 'Darwin' ]]; then
+	    echo `nvm use 0.11.13`;
+	else
+	    echo `nvm use 0.10.30`;
+	fi
 fi
 
 #bin
