@@ -25,8 +25,6 @@ nnoremap <D-right> :vertical resize +5<cr>
 :nmap <C-N><C-N> :set invnumber<CR>
 
 :map <C-F2> :echo 'Current time is ' . strftime('%c')<CR>
-let g:dbgPavimPort = 9009
-let g:dbgPavimBreakAtEntry = 0
 
 :%s/\s\+$//e "purge all trailing whitespace
 

@@ -43,7 +43,6 @@ alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 
 # file
-alias gcb='git checkout -b'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -51,6 +50,11 @@ alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
+webroot="/var/www/html"
+alias cc="cd $webroot/coins_core"
+alias mic="cd $webroot/micis"
+alias micis="mic"
+alias p2="cd $webroot/p2"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -90,6 +94,10 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
+alias gcb='git checkout -b'
+alias gcd='git checkout develop'
+alias gcm='git checkout master'
+alias gd='git diff'
 
 function gconfigme() {
     echo "Setting git config params";
@@ -125,6 +133,9 @@ if [[ $OS == 'centos' ]]; then
 
 elif [[ $OS == 'Darwin' ]]; then
     export EDITOR="sublime"
+    alias sublime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+    alias subl="sublime"
+
     ## osx only
     alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
     alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
@@ -214,6 +225,10 @@ elif [ -n "${BASH_VERSION}" ]; then
     alias sourceme="source ~/.bash_profile"
     alias bashconfig="$EDITOR ~/.bash_profile"
 fi
+
+#install rmate
+alias installrmate="mkdir ~/bin && curl -Lo ~/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && chmod a+x ~/bin/rmate"
+# to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this 
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit ($ARCTCTR)"
