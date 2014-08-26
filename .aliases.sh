@@ -133,8 +133,16 @@ if [[ $OS == 'centos' ]]; then
 
 elif [[ $OS == 'Darwin' ]]; then
     export EDITOR="sublime"
-    alias sublime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
-    alias subl="sublime"
+    if [ -f "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ]
+        then
+        alias sublime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+        alias subl="sublime"
+    fi
+    if [ -f "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" ]
+        then
+        alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+        alias subl="sublime"
+    fi
 
     ## osx only
     alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
