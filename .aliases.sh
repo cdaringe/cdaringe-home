@@ -6,7 +6,7 @@ if [ -f /etc/lsb-release ]; then
     OS=$DISTRIB_ID
     VER=$DISTRIB_RELEASE
 elif [ -f /etc/debian_version ]; then
-    OS=ubuntu  # XXX or Ubuntu??
+    OS="ubuntu"  # XXX or Ubuntu??
     VER=$(cat /etc/debian_version)
 elif [ -f /etc/yum.conf ]; then
     OS=centos
@@ -172,8 +172,8 @@ elif [[ $OS == 'Darwin' ]]; then
       echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
     fi
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
-elif [[ $OS == 'ubuntu' ]]; then
-    alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
+elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
+    alias serverconf="sudo $EDITOR /etc/apache2/apache2.conf"
     alias siteconf="sudo $EDITOR /etc/apache2/envvars"
 
     alias serverrestart="sudo /etc/init.d/apache2 restart"
