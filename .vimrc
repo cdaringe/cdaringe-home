@@ -13,7 +13,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set number
-set background=light
+set background=dark
 syntax on
 colorscheme solarized
 
