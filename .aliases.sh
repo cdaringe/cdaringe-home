@@ -6,7 +6,7 @@ if [ -f /etc/lsb-release ]; then
     OS=$DISTRIB_ID
     VER=$DISTRIB_RELEASE
 elif [ -f /etc/debian_version ]; then
-    OS=ubuntu  # XXX or Ubuntu??
+    OS="ubuntu"  # XXX or Ubuntu??
     VER=$(cat /etc/debian_version)
 elif [ -f /etc/yum.conf ]; then
     OS=centos
@@ -55,6 +55,8 @@ alias cc="cd $webroot/coins_core"
 alias mic="cd $webroot/micis"
 alias micis="mic"
 alias p2="cd $webroot/p2"
+alias asmt="cd $webroot/micis/asmt"
+alias oCoins="cd $webroot/oCoins/app"
 alias portals="cd $webroot/portals"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -173,8 +175,8 @@ elif [[ $OS == 'Darwin' ]]; then
       echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
     fi
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
-elif [[ $OS == 'ubuntu' ]]; then
-    alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
+elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
+    alias serverconf="sudo $EDITOR /etc/apache2/apache2.conf"
     alias siteconf="sudo $EDITOR /etc/apache2/envvars"
 
     alias serverrestart="sudo /etc/init.d/apache2 restart"
@@ -236,8 +238,13 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 #install rmate
-alias installrmate="mkdir ~/bin && curl -Lo ~/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && chmod a+x ~/bin/rmate"
+alias installrmate="curl -Lo ~/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && chmod a+x ~/bin/rmate"
 # to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this 
+
+# unix generic
+alias network="sudo $EDITOR /etc/network/interfaces"
+alias startup="sudo $EDITOR /etc/rc.local"
+alias powerdown="sudo shutdown -hP -t 1 now"
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit ($ARCTCTR)"
