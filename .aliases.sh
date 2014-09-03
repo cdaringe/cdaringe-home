@@ -134,6 +134,8 @@ if [[ $OS == 'centos' ]]; then
 
     # ops
     export PATH=/usr/sbin:$PATH
+    export log="$EDITOR /var/log/messages"
+    export slog="$EDITOR /var/log/secure"
 
 elif [[ $OS == 'Darwin' ]]; then
     export EDITOR="sublime"
@@ -190,6 +192,10 @@ elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
 elif [[ $OS == "arch" ]]; then
     fail2banconf="sudo vim /etc/fail2ban/jail.conf"
     restartssh="sudo systemctl restart sshd"
+
+    #ops
+    export log="$EDITOR /var/log/syslog"
+    export slog="$EDITOR /var/log/auth.log"
 fi
 
 # vim
