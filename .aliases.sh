@@ -6,7 +6,7 @@ if [ -f /etc/lsb-release ]; then
     OS=$DISTRIB_ID
     VER=$DISTRIB_RELEASE
 elif [ -f /etc/debian_version ]; then
-    OS=ubuntu  # XXX or Ubuntu??
+    OS="ubuntu"  # XXX or Ubuntu??
     VER=$(cat /etc/debian_version)
 elif [ -f /etc/yum.conf ]; then
     OS=centos
@@ -43,7 +43,6 @@ alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 
 # file
-alias gcb='git checkout -b'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -51,6 +50,14 @@ alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
+webroot="/var/www/html"
+alias cc="cd $webroot/coins_core"
+alias mic="cd $webroot/micis"
+alias micis="mic"
+alias p2="cd $webroot/p2"
+alias asmt="cd $webroot/micis/asmt"
+alias oCoins="cd $webroot/oCoins/app"
+alias portals="cd $webroot/portals"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -91,6 +98,10 @@ alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
+alias gcb='git checkout -b'
+alias gcd='git checkout develop'
+alias gcm='git checkout master'
+alias gd='git diff'
 
 function gconfigme() {
     echo "Setting git config params";
@@ -126,6 +137,17 @@ if [[ $OS == 'centos' ]]; then
 
 elif [[ $OS == 'Darwin' ]]; then
     export EDITOR="sublime"
+    if [ -f "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ]
+        then
+        alias sublime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+        alias subl="sublime"
+    fi
+    if [ -f "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" ]
+        then
+        alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+        alias subl="sublime"
+    fi
+
     ## osx only
     alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
     alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
@@ -154,8 +176,8 @@ elif [[ $OS == 'Darwin' ]]; then
       echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
     fi
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
-elif [[ $OS == 'ubuntu' ]]; then
-    alias serverconf="sudo $EDITOR /etc/apache2/sites-enabled/000-default"
+elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
+    alias serverconf="sudo $EDITOR /etc/apache2/apache2.conf"
     alias siteconf="sudo $EDITOR /etc/apache2/envvars"
 
     alias serverrestart="sudo /etc/init.d/apache2 restart"
@@ -184,6 +206,7 @@ alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc .vimrc; g
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
 export PATH=/home/$USER/node/:$PATH
 alias nvm10="nvm use 0.10.30"
+alias nvm11="nvm use 0.11.13"
 alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
 alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
 
@@ -207,14 +230,23 @@ killa () {
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
 
+alias zshconfig="$EDITOR ~/.zshrc"
+alias bashconfig="$EDITOR ~/.bash_profile"
 if [ -n "${ZSH_VERSION}" ]; then
     alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
     alias sourceme="source ~/.zshrc"
-    alias zshconfig="$EDITOR ~/.zshrc"
 elif [ -n "${BASH_VERSION}" ]; then
     alias sourceme="source ~/.bash_profile"
-    alias bashconfig="$EDITOR ~/.bash_profile"
 fi
+
+#install rmate
+alias installrmate="curl -Lo ~/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && chmod a+x ~/bin/rmate"
+# to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this 
+
+# unix generic
+alias network="sudo $EDITOR /etc/network/interfaces"
+alias startup="sudo $EDITOR /etc/rc.local"
+alias powerdown="sudo shutdown -hP -t 1 now"
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit ($ARCTCTR)"
