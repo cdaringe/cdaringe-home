@@ -89,27 +89,27 @@ export MANPATH="/usr/local/man:$MANPATH"
 `git config --global color.ui auto`
 export PATH=/usr/local/sbin:$PATH
 
+# nvm config
 if [[ $OS == 'Darwin' ]]; then
     export NVM_DIR="/Users/cdaringe/.nvm"
 else
     export NVM_DIR="/home/cdieringer/.nvm"
 fi
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-#python
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-    echo "...python virtual environment loaded";
-fi
 if [ -f "$NVM_DIR/nvm.sh" ]; then
-	source ~/.nvm/nvm.sh
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 	if [[ $OS == 'Darwin' ]]; then
 	    echo `nvm use 0.11.13`;
 	else
 	    echo `nvm use 0.10.30`;
 	fi
+fi
+
+# python
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+    echo "...python virtual environment loaded";
 fi
 
 #bin

@@ -135,7 +135,20 @@ else
     export NVM_DIR="/home/cdieringer/.nvm"
 fi
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# nvm config
+if [[ $OS == 'Darwin' ]]; then
+    export NVM_DIR="/Users/cdaringe/.nvm"
+else
+    export NVM_DIR="/home/cdieringer/.nvm"
+fi
+if [ -f "$NVM_DIR/nvm.sh" ]; then
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    if [[ $OS == 'Darwin' ]]; then
+        echo `nvm use 0.11.13`;
+    else
+        echo `nvm use 0.10.30`;
+    fi
+fi
 
 #bin
 if [ -f ~/bin/rmate ]; then

@@ -213,6 +213,7 @@ alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc .vimrc; g
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
 export PATH=/home/$USER/node/:$PATH
 alias nvm10="nvm use 0.10.30"
+alias nvm11="nvm use 0.11.13"
 alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
 alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
 
@@ -236,13 +237,13 @@ killa () {
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
 
+alias zshconfig="$EDITOR ~/.zshrc"
+alias bashconfig="$EDITOR ~/.bash_profile"
 if [ -n "${ZSH_VERSION}" ]; then
     alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
     alias sourceme="source ~/.zshrc"
-    alias zshconfig="$EDITOR ~/.zshrc"
 elif [ -n "${BASH_VERSION}" ]; then
     alias sourceme="source ~/.bash_profile"
-    alias bashconfig="$EDITOR ~/.bash_profile"
 fi
 
 #install rmate
