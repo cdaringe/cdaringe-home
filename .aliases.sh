@@ -50,6 +50,7 @@ alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
+alias updatesecrets="scp cdieringer@neweb10:~/.secrets ~/.secrets"
 webroot="/var/www/html"
 alias cc="cd $webroot/coins_core"
 alias mic="cd $webroot/micis"
@@ -85,6 +86,7 @@ alias scpTo10f="scp -r $1 cdieringer@neweb10:~/"
 alias scpFrom10="scp cdieringer@neweb10:~/$1 ~/Desktop/"
 alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
+alias zedhere="zedrem -key $zedkey ."
 
 # git
 alias gs="git status"
@@ -134,6 +136,8 @@ if [[ $OS == 'centos' ]]; then
 
     # ops
     export PATH=/usr/sbin:$PATH
+    export log="$EDITOR /var/log/messages"
+    export slog="$EDITOR /var/log/secure"
 
 elif [[ $OS == 'Darwin' ]]; then
     export EDITOR="sublime"
@@ -190,6 +194,10 @@ elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
 elif [[ $OS == "arch" ]]; then
     fail2banconf="sudo vim /etc/fail2ban/jail.conf"
     restartssh="sudo systemctl restart sshd"
+
+    #ops
+    export log="$EDITOR /var/log/syslog"
+    export slog="$EDITOR /var/log/auth.log"
 fi
 
 # vim
