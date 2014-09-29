@@ -87,9 +87,12 @@ alias scpFrom10="scp cdieringer@neweb10:~/$1 ~/Desktop/"
 alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias zedhere="zedrem -key $zedkey ."
+alias zedserver="usr/bin/zedrem -- --server &"
+alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
 
 # git
 alias gs="git status"
+alias gd="git diff"
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
 alias gpushm="git push origin develop"
