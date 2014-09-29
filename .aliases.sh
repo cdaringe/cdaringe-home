@@ -92,7 +92,6 @@ alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
 
 # git
 alias gs="git status"
-alias gd="git diff"
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
 alias gpushm="git push origin develop"
@@ -105,7 +104,7 @@ alias gba="git branch --list -a"
 alias gcb='git checkout -b'
 alias gcd='git checkout develop'
 alias gcm='git checkout master'
-alias gd='git diff -b --ignore-space-change -w --ignore-all-space'
+alias gd='git diff --ignore-space-change --ignore-all-space'
 
 function gconfigme() {
     echo "Setting git config params";
