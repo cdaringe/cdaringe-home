@@ -102,7 +102,7 @@ alias gba="git branch --list -a"
 alias gcb='git checkout -b'
 alias gcd='git checkout develop'
 alias gcm='git checkout master'
-alias gd='git diff'
+alias gd='git diff -b --ignore-space-change -w --ignore-all-space'
 
 function gconfigme() {
     echo "Setting git config params";
