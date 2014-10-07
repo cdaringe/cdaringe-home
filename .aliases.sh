@@ -249,7 +249,7 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 #install rmate
-alias installrmate="curl -Lo ~/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && chmod a+x ~/bin/rmate"
+alias installrmate="sudo curl -Lo ~/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && sudo chmod a+x ~/bin/rmate"
 # to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this 
 
 # unix generic
