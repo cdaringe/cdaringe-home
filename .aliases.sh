@@ -1,3 +1,4 @@
+#!/bin/bash
 # Get system data
 ARCTCTR=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
@@ -123,6 +124,7 @@ function gcr() {
 alias untar="tar -xvf $1"
 
 #** SERVER **#
+# Note: some server aliases maintained in env.sh
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
 if [[ $OS == 'centos' ]]; then
     ## apache

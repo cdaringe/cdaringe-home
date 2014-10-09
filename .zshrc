@@ -61,6 +61,7 @@ plugins=(git  osx colorize mosh fasd bower node npm brew)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases.sh
 source $HOME/.dbfuncs.sh
+source $HOME/.env.sh
 
 # User configuration
 
