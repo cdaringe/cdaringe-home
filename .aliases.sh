@@ -43,6 +43,9 @@ alias gobash="chsh -s $(which bash) $USER"
 alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 
+# apps
+alias javaversion="sudo update-alternatives --config java"
+
 # file
 alias ..="cd .."
 alias ...="cd ../.."
