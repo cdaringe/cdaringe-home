@@ -1,3 +1,4 @@
+#!/bin/bash
 # Get system data
 ARCTCTR=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
@@ -42,6 +43,9 @@ alias gobash="chsh -s $(which bash) $USER"
 alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 
+# apps
+alias javaversion="sudo update-alternatives --config java"
+
 # file
 alias ..="cd .."
 alias ...="cd ../.."
@@ -52,6 +56,7 @@ alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
 alias updatesecrets="scp cdieringer@neweb10:~/.secrets ~/.secrets"
 webroot="/var/www/html"
+alias cas="cd $webroot/cas"
 alias cc="cd $webroot/coins_core"
 alias mic="cd $webroot/micis"
 alias micis="mic"
@@ -92,20 +97,19 @@ alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
 
 # git
 alias gs="git status"
-alias gd="git diff"
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
-alias gpushm="git push origin develop"
 alias gpushd="git push origin develop"
 alias gpush="git push origin $1"
 alias gp="git pull"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
+alias gc="git checkout"
 alias gcb='git checkout -b'
 alias gcd='git checkout develop'
 alias gcm='git checkout master'
-alias gd='git diff -b --ignore-space-change -w --ignore-all-space'
+alias gd='git diff --ignore-space-change --ignore-all-space'
 
 function gconfigme() {
     echo "Setting git config params";
@@ -123,6 +127,7 @@ function gcr() {
 alias untar="tar -xvf $1"
 
 #** SERVER **#
+# Note: some server aliases maintained in env.sh
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
 if [[ $OS == 'centos' ]]; then
     ## apache
@@ -209,7 +214,7 @@ alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .bash_profile .zshrc .vimrc; git commit -m 'Config updates';git push origin master;sourceme)"
+alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .env.sh .bash_profile .zshrc .vimrc; git commit -m 'Config updates';git push origin master;sourceme)"
 
 
 ## node
@@ -250,7 +255,7 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 #install rmate
-alias installrmate="curl -Lo ~/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && chmod a+x ~/bin/rmate"
+alias installrmate="sudo curl -Lo ~/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && sudo chmod a+x ~/bin/rmate"
 # to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this 
 
 # unix generic

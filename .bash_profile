@@ -121,6 +121,9 @@ fi
 if [ -f ~/.dbfuncs.sh ]; then
     . ~/.dbfuncs.sh
 fi
+if [ -f ~/.env.sh ]; then
+    . ~/.env.sh
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
