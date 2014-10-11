@@ -89,6 +89,13 @@ export MANPATH="/usr/local/man:$MANPATH"
 `git config --global color.ui auto`
 export PATH=/usr/local/sbin:$PATH
 
+# javacc
+if [[ $OS == 'Darwin' ]]; then
+    if [ -f "$HOME/dev/javacc-5.0/bin/javacc" ]; then
+        export PATH="$PATH:$HOME/dev/javacc-5.0/bin/"
+    fi
+fi
+
 # nvm config
 if [[ $OS == 'Darwin' ]]; then
     export NVM_DIR="/Users/cdaringe/.nvm"
