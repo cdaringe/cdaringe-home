@@ -65,8 +65,8 @@ source $HOME/.env.sh
 
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
-export PATH="$PATH:/usr/local/lib/node_modules/karma/bin"
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/sbin:/usr/local/bin
+export PATH=$PATH:/usr/local/lib/node_modules/karma/bin
 export PATH=$PATH:$JAVA_HOME/bin:/opt/liquibase
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -88,7 +88,6 @@ export MANPATH="/usr/local/man:$MANPATH"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
 `git config --global color.ui auto`
-export PATH=/usr/local/sbin:$PATH
 
 # javacc
 if [[ $OS == 'Darwin' ]]; then
