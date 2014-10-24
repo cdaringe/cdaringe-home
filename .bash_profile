@@ -40,6 +40,13 @@ shopt -s checkwinsize
 # PATH Extensions
 export PATH="$PATH:/usr/local/lib/node_modules/karma/bin"
 
+# javacc
+if [[ $OS == 'Darwin' ]]; then
+    if [ -f "$HOME/dev/javacc-5.0/bin/javacc" ]; then
+        export PATH="$PATH:$HOME/dev/javacc-5.0/bin/"
+    fi
+fi
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
