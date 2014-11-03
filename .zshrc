@@ -65,6 +65,7 @@ source $HOME/.env.sh
 
 # User configuration
 
+export PATH=$PATH:/usr/local
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/sbin:/usr/local/bin
 export PATH=$PATH:/usr/local/lib/node_modules/karma/bin
 export PATH=$PATH:$JAVA_HOME/bin:/opt/liquibase
@@ -107,7 +108,7 @@ if [ -f "$NVM_DIR/nvm.sh" ]; then
 	if [[ $OS == 'Darwin' ]]; then
 	    echo `nvm use 0.11.13`;
 	else
-	    echo `nvm use 0.10.30`;
+	   # echo `nvm use 0.10.30`;
 	fi
 fi
 

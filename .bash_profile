@@ -38,6 +38,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # PATH Extensions
+export PATH="$PATH:/usr/local"
 export PATH="$PATH:/usr/local/lib/node_modules/karma/bin"
 
 # javacc

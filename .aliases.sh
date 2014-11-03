@@ -110,6 +110,7 @@ alias gcb='git checkout -b'
 alias gcd='git checkout develop'
 alias gcm='git checkout master'
 alias gd='git diff --ignore-space-change --ignore-all-space'
+alias gh="git config --get remote.origin.url"
 
 function gconfigme() {
     echo "Setting git config params";
