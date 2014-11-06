@@ -7,22 +7,22 @@
 # @param {string} dbname - database name
 udb ()
 {
-    USERNAME="ni_developers"
-    PASSWORD=$dbpass
+    DBUN="ni_developers"
+    DBPASS=$dbpass
     DBHOST="nirepdb"
     DBNAME=$2
     PORT="5432"
     FILENAME=$1
     echo
     echo "=== Update DB Request ==="
-    echo "username: $USERNAME"
+    echo "username: $DBUN"
     echo "host: $DBHOST"
     echo "dbname: $DBNAME"
     echo "port: 5432"
     echo "file: $FILENAME"
     echo "== = = = =="
     echo
-    liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=${FILENAME} --defaultSchemaName=mrsdba --logLevel=info update
+    liquibase --classpath=/usr/lib/java/lib --username=${DBUN} --password=${DBPASS} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=${FILENAME} --defaultSchemaName=mrsdba --logLevel=info update
 }
 
 
@@ -32,8 +32,8 @@ udb ()
 # @param {string} dbname - database name
 rdb ()
 {
-    USERNAME="ni_developers"
-    PASSWORD=$dbpass
+    DBUN="ni_developers"
+    DBPASS=$dbpass
     DBHOST="nirepdb"
     DBNAME=$2
     PORT="5432"
@@ -48,7 +48,7 @@ rdb ()
     echo "file: $FILENAME"
     echo "== = = = =="
     echo
-    liquibase --classpath=/usr/lib/java/lib --username=${USERNAME} --password=${PASSWORD} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$1 --logLevel=info --defaultSchemaName=mrsdba rollbackCount 99
+    liquibase --classpath=/usr/lib/java/lib --username=${DBUN} --password=${DBPASS} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=$1 --logLevel=info --defaultSchemaName=mrsdba rollbackCount 99
 }
 
 

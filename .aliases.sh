@@ -139,6 +139,7 @@ if [[ $OS == 'centos' ]]; then
     alias serverstop="sudo /sbin/service httpd stop"
     alias serverstart="sudo /sbin/service httpd start"
 
+    alias networkingrestart="sudo /etc/init.d/network restart"
     #php
     alias phpini="sudo $EDITOR /etc/php.ini"
 

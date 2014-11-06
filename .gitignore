@@ -3,4 +3,7 @@
 .secrets
 .DS_Store
 .viminfo
-
+./.vim/*
+\.vim
+vim/*
+*vim/*
