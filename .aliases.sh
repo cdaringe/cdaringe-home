@@ -247,6 +247,7 @@ killa () {
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
 
+# profile
 alias zshconfig="$EDITOR ~/.zshrc"
 alias bashconfig="$EDITOR ~/.bash_profile"
 if [ -n "${ZSH_VERSION}" ]; then
@@ -264,6 +265,9 @@ alias installrmate="sudo curl -Lo ~/rmate https://raw.github.com/textmate/rmate/
 alias network="sudo $EDITOR /etc/network/interfaces"
 alias startup="sudo $EDITOR /etc/rc.local"
 alias powerdown="sudo shutdown -hP -t 1 now"
+
+# test
+alias moc="mocha --reporter nyan"
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit ($ARCTCTR)"
