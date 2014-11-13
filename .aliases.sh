@@ -38,6 +38,7 @@ alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
+alias getsecrets="scp neweb10:~/.secrets ~/"
 
 # sys
 alias sudoers="sudo vim /etc/sudoers"
@@ -130,6 +131,9 @@ alias untar="tar -xvf $1"
 #** SERVER **#
 # Note: some server aliases maintained in env.sh
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
+alias syslog="$EDITOR /var/log/syslog"
+alias phplog="syslog"
+
 if [[ $OS == 'centos' ]]; then
     ## apache
     alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
@@ -196,6 +200,12 @@ elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
     alias serverrestart="sudo /etc/init.d/apache2 restart"
     alias serverstop="sudo /etc/init.d/apache2 stop"
     alias serverstart="sudo /etc/init.d/apache2 start"
+
+    alias serverloga="sudo $EDITOR /var/log/apache2/access.log"
+    alias serverloge="sudo $EDITOR /var/log/apache2/error.log"
+    alias serverlogo="sudo $EDITOR /var/log/apache2/other_vhosts_access.log"
+    alias serverlogcleare="sudo rm /var/log/apache2/error.log"
+    alias sitecoins="sudo $EDITOR /etc/apache2/sites-available/coins-ssl"
 
     #php
     alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
