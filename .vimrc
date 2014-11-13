@@ -7,6 +7,7 @@ filetype off
 filetype plugin indent on
 
 "environment settings
+set mouse=a
 set fileformat=unix
 set backspace=indent,eol,start
 set tabstop=4
@@ -28,3 +29,20 @@ nnoremap <D-right> :vertical resize +5<cr>
 
 :%s/\s\+$//e "purge all trailing whitespace
 
+"vdebug
+let g:vdebug_options= {
+    \    "port" : 9000,
+    \    "server" : 'localhost',
+    \    "timeout" : 20,
+    \    "on_close" : 'detach',
+    \    "break_on_open" : 1,
+    \    "ide_key" : '',
+    \    "path_maps" : {},
+    \    "debug_window_level" : 0,
+    \    "debug_file_level" : 0,
+    \    "debug_file" : "",
+    \    "watch_window_style" : 'compact',
+    \    "marker_default" : '⬦',
+    \    "marker_closed_tree" : '▸',
+    \    "marker_open_tree" : '▾'
+    \}
