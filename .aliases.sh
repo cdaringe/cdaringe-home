@@ -129,6 +129,7 @@ alias untar="tar -xvf $1"
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
 alias syslog="$EDITOR /var/log/syslog"
 alias phplog="syslog"
+alias ports="sudo netstat -plunt"
 
 if [[ $OS == 'centos' ]]; then
     ## apache
@@ -273,7 +274,7 @@ alias startup="sudo $EDITOR /etc/rc.local"
 alias powerdown="sudo shutdown -hP -t 1 now"
 
 # test
-alias moc="mocha --reporter nyan"
+alias moc="mocha --reporter nyan --recursive --bail"
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
