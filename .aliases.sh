@@ -38,6 +38,7 @@ alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
+alias getsecrets="scp neweb10:~/.secrets ~/"
 
 # sys
 alias sudoers="sudo vim /etc/sudoers"
@@ -45,6 +46,7 @@ alias useradd="echo \"Did you mean to perform adduser?\""
 
 # apps
 alias javaversion="sudo update-alternatives --config java"
+alias phpdebug="~/.phpdebug.sh"
 
 # file
 alias ..="cd .."
@@ -54,8 +56,8 @@ alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
-alias updatesecrets="scp cdieringer@neweb10:~/.secrets ~/.secrets"
 webroot="/var/www/html"
+alias www="cd $webroot"
 alias cas="cd $webroot/cas"
 alias cc="cd $webroot/coins_core"
 alias mic="cd $webroot/micis"
@@ -85,11 +87,6 @@ alias pglogon="sudo -u postgres psql"
 alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
 alias ssh10="ssh neweb10 -t screen"
 alias list="screen -list"
-alias web="cd /var/www/html"
-alias scpTo10="scp $1 cdieringer@neweb10:~/"
-alias scpTo10f="scp -r $1 cdieringer@neweb10:~/"
-alias scpFrom10="scp cdieringer@neweb10:~/$1 ~/Desktop/"
-alias scpFrom10f="scp -r cdieringer@neweb10:~/$1 ~/Desktop/"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias zedhere="zedrem -key $zedkey ."
 alias zedserver="usr/bin/zedrem -- --server &"
@@ -130,6 +127,10 @@ alias untar="tar -xvf $1"
 #** SERVER **#
 # Note: some server aliases maintained in env.sh
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
+alias syslog="$EDITOR /var/log/syslog"
+alias phplog="syslog"
+alias ports="sudo netstat -plunt"
+
 if [[ $OS == 'centos' ]]; then
     ## apache
     alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
@@ -139,6 +140,7 @@ if [[ $OS == 'centos' ]]; then
     alias serverstop="sudo /sbin/service httpd stop"
     alias serverstart="sudo /sbin/service httpd start"
 
+    alias networkingrestart="sudo /etc/init.d/network restart"
     #php
     alias phpini="sudo $EDITOR /etc/php.ini"
 
@@ -195,6 +197,12 @@ elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
     alias serverrestart="sudo /etc/init.d/apache2 restart"
     alias serverstop="sudo /etc/init.d/apache2 stop"
     alias serverstart="sudo /etc/init.d/apache2 start"
+
+    alias serverloga="sudo $EDITOR /var/log/apache2/access.log"
+    alias serverloge="sudo $EDITOR /var/log/apache2/error.log"
+    alias serverlogo="sudo $EDITOR /var/log/apache2/other_vhosts_access.log"
+    alias serverlogcleare="sudo rm /var/log/apache2/error.log"
+    alias sitecoins="sudo $EDITOR /etc/apache2/sites-available/coins-ssl"
 
     #php
     alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
@@ -258,7 +266,7 @@ fi
 
 #install rmate
 alias installrmate="sudo curl -Lo ~/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && sudo chmod a+x ~/bin/rmate"
-# to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this 
+# to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this
 
 # unix generic
 alias network="sudo $EDITOR /etc/network/interfaces"
@@ -266,7 +274,7 @@ alias startup="sudo $EDITOR /etc/rc.local"
 alias powerdown="sudo shutdown -hP -t 1 now"
 
 # test
-alias moc="mocha --reporter nyan"
+alias moc="mocha --reporter nyan --recursive --bail"
 
 # Get weird
-echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS -bit ($ARCTCTR)"
+echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
