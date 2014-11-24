@@ -38,7 +38,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # PATH Extensions
-PATH='/usr/local/bin:$PATH'
+export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:/usr/local"
 
 # javacc
