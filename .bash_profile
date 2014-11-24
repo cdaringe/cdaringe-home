@@ -38,8 +38,8 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # PATH Extensions
+PATH='/usr/local/bin:$PATH'
 export PATH="$PATH:/usr/local"
-export PATH="$PATH:/usr/local/lib/node_modules/karma/bin"
 
 # javacc
 if [[ $OS == 'Darwin' ]]; then

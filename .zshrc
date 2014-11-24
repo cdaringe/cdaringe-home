@@ -65,7 +65,8 @@ source $HOME/.env.sh
 
 # User configuration
 
-export PATH=$PATH:/usr/local
+export PATH='/usr/local/bin:$PATH'
+export PATH='/usr/local:$PATH'
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/sbin:/usr/local/bin
 export PATH=$PATH:/usr/local/lib/node_modules/karma/bin
 export PATH=$PATH:$JAVA_HOME/bin:/opt/liquibase
