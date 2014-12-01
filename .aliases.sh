@@ -38,7 +38,7 @@ alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
-alias getsecrets="scp neweb10:~/.secrets ~/"
+alias getsecrets="scp chrisweb:~/.secrets ~/"
 
 # sys
 alias sudoers="sudo vim /etc/sudoers"
@@ -129,6 +129,7 @@ alias untar="tar -xvf $1"
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
 alias syslog="$EDITOR /var/log/syslog"
 alias phplog="syslog"
+alias ports="sudo netstat -plunt"
 
 if [[ $OS == 'centos' ]]; then
     ## apache
@@ -273,7 +274,9 @@ alias startup="sudo $EDITOR /etc/rc.local"
 alias powerdown="sudo shutdown -hP -t 1 now"
 
 # test
-alias moc="mocha --reporter nyan"
+alias moc="mocha --recursive --bail"
+alias mocc="moc --reporter mocha-istanbul"
+alias mocs="moc --reporter spec "
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
