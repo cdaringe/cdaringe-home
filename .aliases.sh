@@ -38,7 +38,7 @@ alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
-alias getsecrets="scp neweb10:~/.secrets ~/"
+alias getsecrets="scp chrisweb:~/.secrets ~/"
 
 # sys
 alias sudoers="sudo vim /etc/sudoers"

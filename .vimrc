@@ -8,6 +8,9 @@ filetype plugin indent on
 
 "environment settings
 set mouse=a
+noremap <LeftDrag> <LeftMouse>
+noremap! <LeftDrag> <LeftMouse>
+
 set fileformat=unix
 set backspace=indent,eol,start
 set tabstop=4
