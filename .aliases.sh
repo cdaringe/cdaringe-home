@@ -274,7 +274,9 @@ alias startup="sudo $EDITOR /etc/rc.local"
 alias powerdown="sudo shutdown -hP -t 1 now"
 
 # test
-alias moc="mocha --reporter mocha-istanbul --recursive --bail" # --reporter nyan
+alias moc="mocha --recursive --bail"
+alias mocc="moc --reporter mocha-istanbul"
+alias mocs="moc --reporter spec --recursive --bail"
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
