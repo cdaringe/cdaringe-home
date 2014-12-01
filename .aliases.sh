@@ -276,7 +276,7 @@ alias powerdown="sudo shutdown -hP -t 1 now"
 # test
 alias moc="mocha --recursive --bail"
 alias mocc="moc --reporter mocha-istanbul"
-alias mocs="moc --reporter spec --recursive --bail"
+alias mocs="moc --reporter spec "
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
