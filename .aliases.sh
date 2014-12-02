@@ -43,6 +43,7 @@ alias getsecrets="scp chrisweb:~/.secrets ~/"
 # sys
 alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
+alias shasum="sha1sum"
 
 # apps
 alias javaversion="sudo update-alternatives --config java"
