@@ -66,6 +66,7 @@ alias micis="mic"
 alias p2="cd $webroot/p2"
 alias asmt="cd $webroot/micis/asmt"
 alias oCoins="cd $webroot/oCoins/app"
+alias ocoins="oCoins"
 alias portals="cd $webroot/portals"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
