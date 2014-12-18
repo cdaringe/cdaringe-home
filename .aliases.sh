@@ -134,8 +134,11 @@ alias untar="tar -xvf $1"
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
 alias syslog="$EDITOR /var/log/syslog"
 # Toggle logstashing across sessions
-alias logstashoff="sudo ln -s /etc/logstash-forwarder_off /etc/logstash-forwarder; sudo service logstash-forwarder stop;"
-alias logstashon="sudo ln -s /etc/logstash-forwarder_on /etc/logstash-forwarder; sudo service logstash-forwarder start;"
+logstashConf="/etc/logstash-forwarder"
+lsOff="_off"
+lsOn="_on"
+alias logstashoff="sudo rm $logstashConf;sudo ln -s $logstashConf$lsOff $logstashConf; sudo service logstash-forwarder stop &;"
+alias logstashon=" sudo rm $logstashConf;sudo ln -s $logstashConf$lsOn  $logstashConf; sudo service logstash-forwarder start &;"
 alias phplog="syslog"
 alias ports="sudo netstat -plunt"
 
