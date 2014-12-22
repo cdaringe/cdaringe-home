@@ -92,7 +92,6 @@ alias ssh10="ssh neweb10 -t screen"
 alias list="screen -list"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias gwd="grunt watch:dev &"
-alias kgw="GW_PID=$(pgrep grunt);echo \"killing grunt watch @$GW_PID\";kill $GW_PID;"
 alias gwa="grunt concurrent:watchAll &"
 alias zedhere="zedrem -key $zedkey ."
 alias zedserver="usr/bin/zedrem -- --server &"
@@ -259,6 +258,17 @@ killd () {
 killa () {
     screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
+}
+
+
+# kag - kill all grunt tasks
+function kgw() {
+    i=0
+    pgrep grunt | while read -r line ; do
+        kill $line
+        let i=i+1
+    done
+    echo "killed $i grunt processes"
 }
 
 # Requires COINS beautifulcodeClient
