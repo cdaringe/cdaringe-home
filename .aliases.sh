@@ -262,7 +262,7 @@ killa () {
 
 
 # kag - kill all grunt tasks
-function kgw() {
+function kag() {
     i=0
     pgrep grunt | while read -r line ; do
         kill $line
