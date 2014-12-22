@@ -250,11 +250,6 @@ alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
 alias httpup="httpster /Users/cdieringer/ &"
 alias httpdown="kill $(ps aux | grep '[h]ttpster' | awk '{print $2}')"
 
-## git
-clonehere () {
-    git init | git remote add origin $1 | git pull origin
-}
-
 ## screen
 # kill detached
 killd () {
@@ -265,6 +260,37 @@ killa () {
     screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
+
+# Requires COINS beautifulcodeClient
+function formatFile() {
+    if [ $# -ge 1 ]
+    then
+        if [ $# -ge 2 ]
+        then
+            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 format $2
+        else
+            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 format
+        fi
+    else
+        echo "no input filename provided";
+    fi
+}
+# Requires COINS beautifulcodeClient
+function lintFile() {
+    if [ $# -ge 1 ]
+    then
+        if [ $# -ge 2 ]
+        then
+            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 lint $2
+        else
+            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 lint
+        fi
+    else
+        echo "no input filename provided";
+    fi
+}
+export lintFile
+export formatFile
 
 # profile
 alias zshconfig="$EDITOR ~/.zshrc"
