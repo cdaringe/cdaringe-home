@@ -116,10 +116,10 @@ alias gh="git config --get remote.origin.url"
 
 function gconfigme() {
     echo "Setting git config params";
-    echo "git config --global user.name \"$GITUSERNAME\"";
-    echo `git config --global user.name \"$GITUSERNAME\"`;
-    echo "git config --global user.email \"$EMAIL\"";
-    echo `git config --global user.email \"$EMAIL\"`;
+    echo "git config --global user.name \"cdaringe\"";
+    echo `git config --global user.name \"cdaringe\"`;
+    echo "git config --global user.email \"cdaringe@gmail.com\"";
+    echo `git config --global user.email \"cdaringe@gmail.com\"`;
 }
 function gcr() {
   echo "git checkout -b $1 origin/$1";
