@@ -43,6 +43,7 @@ alias getsecrets="scp chrisweb:~/.secrets ~/"
 # sys
 alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
+alias shasum="sha1sum"
 
 # apps
 alias javaversion="sudo update-alternatives --config java"
@@ -60,11 +61,13 @@ webroot="/var/www/html"
 alias www="cd $webroot"
 alias cas="cd $webroot/cas"
 alias cc="cd $webroot/coins_core"
+alias amp="cc;cd js/browserApp/ampersand;"
 alias mic="cd $webroot/micis"
 alias micis="mic"
 alias p2="cd $webroot/p2"
 alias asmt="cd $webroot/micis/asmt"
 alias oCoins="cd $webroot/oCoins/app"
+alias ocoins="oCoins"
 alias portals="cd $webroot/portals"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -86,6 +89,8 @@ alias pglogon="sudo -u postgres psql"
 ## remote
 alias cw="ssh chrisweb"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
+alias gwd="grunt watch:dev &"
+alias gwa="grunt concurrent:watchAll &"
 alias zedhere="zedrem -key $zedkey ."
 alias zedserver="usr/bin/zedrem -- --server &"
 alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
@@ -109,10 +114,10 @@ alias gh="git config --get remote.origin.url"
 
 function gconfigme() {
     echo "Setting git config params";
-    echo "git config --global user.name \"$GITUSERNAME\"";
-    echo `git config --global user.name \"$GITUSERNAME\"`;
-    echo "git config --global user.email \"$EMAIL\"";
-    echo `git config --global user.email \"$EMAIL\"`;
+    echo "git config --global user.name \"cdaringe\"";
+    echo `git config --global user.name \"cdaringe\"`;
+    echo "git config --global user.email \"cdaringe@gmail.com\"";
+    echo `git config --global user.email \"cdaringe@gmail.com\"`;
 }
 function gcr() {
   echo "git checkout -b $1 origin/$1";
@@ -126,6 +131,12 @@ alias untar="tar -xvf $1"
 # Note: some server aliases maintained in env.sh
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
 alias syslog="$EDITOR /var/log/syslog"
+# Toggle logstashing across sessions
+logstashConf="/etc/logstash-forwarder"
+lsOff="_off"
+lsOn="_on"
+alias logstashoff="sudo rm $logstashConf;sudo ln -s $logstashConf$lsOff $logstashConf; sudo service logstash-forwarder stop &;"
+alias logstashon=" sudo rm $logstashConf;sudo ln -s $logstashConf$lsOn  $logstashConf; sudo service logstash-forwarder start &;"
 alias phplog="syslog"
 alias ports="sudo netstat -plunt"
 
@@ -236,11 +247,6 @@ alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
 alias httpup="httpster /Users/cdieringer/ &"
 alias httpdown="kill $(ps aux | grep '[h]ttpster' | awk '{print $2}')"
 
-## git
-clonehere () {
-    git init | git remote add origin $1 | git pull origin
-}
-
 ## screen
 # kill detached
 killd () {
@@ -251,6 +257,48 @@ killa () {
     screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
     screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
 }
+
+
+# kag - kill all grunt tasks
+function kag() {
+    i=0
+    pgrep grunt | while read -r line ; do
+        kill $line
+        let i=i+1
+    done
+    echo "killed $i grunt processes"
+}
+
+# Requires COINS beautifulcodeClient
+function formatFile() {
+    if [ $# -ge 1 ]
+    then
+        if [ $# -ge 2 ]
+        then
+            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 format $2
+        else
+            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 format
+        fi
+    else
+        echo "no input filename provided";
+    fi
+}
+# Requires COINS beautifulcodeClient
+function lintFile() {
+    if [ $# -ge 1 ]
+    then
+        if [ $# -ge 2 ]
+        then
+            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 lint $2
+        else
+            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 lint
+        fi
+    else
+        echo "no input filename provided";
+    fi
+}
+export lintFile
+export formatFile
 
 # profile
 alias zshconfig="$EDITOR ~/.zshrc"
@@ -274,7 +322,7 @@ alias powerdown="sudo shutdown -hP -t 1 now"
 # test
 alias moc="mocha --recursive --bail"
 alias mocc="moc --reporter mocha-istanbul"
-alias mocs="moc --reporter spec --recursive --bail"
+alias mocs="moc --reporter spec "
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"

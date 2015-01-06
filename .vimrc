@@ -38,7 +38,7 @@ let g:vdebug_options= {
     \    "server" : 'localhost',
     \    "timeout" : 20,
     \    "on_close" : 'detach',
-    \    "break_on_open" : 1,
+    \    "break_on_open" : 0,
     \    "ide_key" : '',
     \    "path_maps" : {},
     \    "debug_window_level" : 0,
