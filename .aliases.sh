@@ -84,9 +84,7 @@ alias l='ls -CF'
 alias pglogon="sudo -u postgres psql"
 
 ## remote
-alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
-alias ssh10="ssh neweb10 -t screen"
-alias list="screen -list"
+alias cw="ssh chrisweb"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias zedhere="zedrem -key $zedkey ."
 alias zedserver="usr/bin/zedrem -- --server &"
