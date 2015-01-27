@@ -87,9 +87,7 @@ alias l='ls -CF'
 alias pglogon="sudo -u postgres psql"
 
 ## remote
-alias mount10="sshfs cdieringer@neweb10: /Users/cdieringer/Documents/remote"
-alias ssh10="ssh neweb10 -t screen"
-alias list="screen -list"
+alias cw="ssh chrisweb"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias gwd="grunt watch:dev &"
 alias gwa="grunt concurrent:watchAll &"
@@ -110,16 +108,17 @@ alias gba="git branch --list -a"
 alias gc="git checkout"
 alias gcb='git checkout -b'
 alias gcd='git checkout develop'
+alias gcr='git checkout release'
 alias gcm='git checkout master'
 alias gd='git diff --ignore-space-change --ignore-all-space'
 alias gh="git config --get remote.origin.url"
 
 function gconfigme() {
     echo "Setting git config params";
-    echo "git config --global user.name \"$GITUSERNAME\"";
-    echo `git config --global user.name \"$GITUSERNAME\"`;
-    echo "git config --global user.email \"$EMAIL\"";
-    echo `git config --global user.email \"$EMAIL\"`;
+    echo "git config --global user.name \"cdaringe\"";
+    echo `git config --global user.name \"cdaringe\"`;
+    echo "git config --global user.email \"cdaringe@gmail.com\"";
+    echo `git config --global user.email \"cdaringe@gmail.com\"`;
 }
 function gcr() {
   echo "git checkout -b $1 origin/$1";

@@ -161,7 +161,10 @@ if [ -f "$NVM_DIR/nvm.sh" ]; then
     fi
 fi
 
-#bin
+# bin
 if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
+
+# work
+`gwa` # init grunt processes

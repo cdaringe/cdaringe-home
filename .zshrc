@@ -120,7 +120,10 @@ if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
     echo "...python virtual environment loaded";
 fi
 
-#bin
+# bin
 if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
+
+# work
+`gwa` # init grunt processes
