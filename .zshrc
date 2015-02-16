@@ -124,3 +124,4 @@ fi
 if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
+NPM_PACKAGES=/Users/cdieringer/.npm-packages
