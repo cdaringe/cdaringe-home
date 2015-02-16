@@ -120,8 +120,14 @@ if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
     echo "...python virtual environment loaded";
 fi
 
-#bin
+# bin
 if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
+<<<<<<< HEAD
 NPM_PACKAGES=/Users/cdieringer/.npm-packages
+=======
+
+# work
+`gwa` # init grunt processes
+>>>>>>> 70668157e860a2daf876e6dfc4f6a665da9fbc05
