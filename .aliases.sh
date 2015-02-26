@@ -234,7 +234,7 @@ alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .env.sh .bash_profile .zshrc .vimrc; git commit -m 'Config updates';git push origin master;sourceme)"
+alias uall="(cd ~;gp; git add .aliases.sh .dbfuncs.sh .env.sh .bash_profile .zshrc .vimrc; git commit -m 'Config updates';git push origin master;sourceme)"
 
 
 ## node
