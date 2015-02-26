@@ -7,7 +7,7 @@ filetype off
 filetype plugin indent on
 
 "environment settings
-"set mouse=a
+set mouse=a
 noremap <LeftDrag> <LeftMouse>
 noremap! <LeftDrag> <LeftMouse>
 

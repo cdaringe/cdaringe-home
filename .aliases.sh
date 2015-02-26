@@ -90,7 +90,7 @@ alias pglogon="sudo -u postgres psql"
 alias cw="ssh chrisweb"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias gwd="grunt watch:dev &"
-alias gwa="grunt concurrent:watchAll &"
+alias gwa="cc; grunt concurrent:watchAll &"
 alias zedhere="zedrem -key $zedkey ."
 alias zedserver="usr/bin/zedrem -- --server &"
 alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
@@ -201,6 +201,7 @@ elif [[ $OS == 'Darwin' ]]; then
     fi
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
 elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
+    export EDITOR='rmate'
     alias serverconf="sudo $EDITOR /etc/apache2/apache2.conf"
     alias siteconf="sudo $EDITOR /etc/apache2/envvars"
 
