@@ -124,6 +124,3 @@ fi
 if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
-
-# work
-`gwa` # init grunt processes
