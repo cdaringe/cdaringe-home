@@ -235,12 +235,7 @@ alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-<<<<<<< HEAD
-alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .env.sh .bash_profile .zshrc .vimrc; git commit -m 'Config updates';gp;git push origin master;sourceme)"
-=======
-alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .env.sh .bash_profile .bashrc .zshrc .vimrc; git commit -m 'Config updates';git push origin master;sourceme)"
->>>>>>> 06734376904f640897d5fa1a57a4000cbf2094e5
-
+alias uall="(cd ~;git add .aliases.sh .dbfuncs.sh .env.sh .bash_profile .bashrc .zshrc .vimrc; git commit -m 'Config updates';gp;git push origin master;sourceme)"
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
