@@ -88,7 +88,7 @@ alias l='ls -CF'
 alias pglogon="sudo -u postgres psql"
 
 ## remote
-alias cw="ssh chrisweb"
+alias cw="ssh chrisweb.mrn.org"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias gwd="grunt watch:dev &"
 alias gwa="cc; grunt concurrent:watchAll &"
