@@ -1,5 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# for examples
 # Get system data
 ARCTCTR=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
@@ -148,17 +146,13 @@ fi
 
 # nvm config
 if [[ $OS == 'Darwin' ]]; then
-    export NVM_DIR="/Users/cdaringe/.nvm"
+    export NVM_DIR="/Users/cdieringer/.nvm"
 else
     export NVM_DIR="/home/cdieringer/.nvm"
 fi
 if [ -f "$NVM_DIR/nvm.sh" ]; then
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-    if [[ $OS == 'Darwin' ]]; then
-        echo `nvm use 0.11.13`;
-    else
-        echo `nvm use 0.10.30`;
-    fi
+        echo `nvm use system`;
 fi
 
 # bin
