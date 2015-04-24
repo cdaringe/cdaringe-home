@@ -21,3 +21,8 @@ node/
 node_modules/
 py27/
 vagrant/
+dbmap.json
+yahtzee
+db_schema
+tmp
+temp
