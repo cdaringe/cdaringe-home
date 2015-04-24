@@ -1,0 +1,23 @@
+{
+  "name": "cdaringe-home",
+  "version": "1.0.0",
+  "description": "cdaringe-home",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "jscsConfig": "node_modules/jscs/presets/airbnb.json",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdaringe/cdaringe-home.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cdaringe/cdaringe-home/issues"
+  },
+  "homepage": "https://github.com/cdaringe/cdaringe-home"
+}

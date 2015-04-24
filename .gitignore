@@ -1,4 +1,3 @@
-# track only basic config files
 .*
 !/.gitignore
 !/.vimrc
@@ -6,3 +5,19 @@
 !/.zshrc
 !/.aliases.sh
 !/.dbfuncs.sh
+Applications/
+Desktop/
+Documents/
+Downloads/
+Dropbox/
+Google Drive/
+Library/
+Movies/
+Music/
+Pictures/
+VirtualBox VMs/
+floobits/
+node/
+node_modules/
+py27/
+vagrant/
