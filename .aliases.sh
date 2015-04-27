@@ -91,6 +91,7 @@ alias pglogon="sudo -u postgres psql"
 ## remote
 alias psu="ssh cmd6@unix.cs.pdx.edu"
 alias cw="ssh chrisweb.mrn.org"
+alias dc="ssh devcoin4.mrn.org"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias gwd="grunt watch:dev &"
 alias gwa="cc; grunt concurrent:watchAll &"
@@ -316,7 +317,7 @@ elif [ -n "${BASH_VERSION}" ]; then
 fi
 
 #install rmate
-alias installrmate="sudo curl -Lo ~/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && sudo chmod a+x ~/bin/rmate"
+alias getrmate="curl -Lo ~/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && sudo chmod a+x ~/rmate"
 # to connect, ssh -R 52698:localhost:52698 user@yourServer. or, .ssh/config specify this
 
 # unix generic

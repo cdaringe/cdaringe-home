@@ -36,6 +36,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # PATH Extensions
+export PATH="~/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:/usr/local"
 
