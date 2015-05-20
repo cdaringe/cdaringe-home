@@ -9,7 +9,7 @@ udb ()
 {
     DBUN="ni_developers"
     DBPASS=$dbpass
-    DBHOST="nirepdb"
+    DBHOST="devdbcoin.mind.unm.edu"
     DBNAME=$2
     PORT="5432"
     FILENAME=$1
@@ -22,7 +22,7 @@ udb ()
     echo "file: $FILENAME"
     echo "== = = = =="
     echo
-    liquibase --classpath=/usr/lib/java/lib --username=${DBUN} --password=${DBPASS} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=${FILENAME} --defaultSchemaName=mrsdba --logLevel=info update
+    ~/liquibase --classpath=/usr/lib/java/lib --username=${DBUN} --password=${DBPASS} --url=jdbc:postgresql://${DBHOST}:${PORT}/${DBNAME} --changeLogFile=${FILENAME} --defaultSchemaName=mrsdba --logLevel=info update
 }
 
 

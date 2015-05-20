@@ -91,6 +91,7 @@ alias pglogon="sudo -u postgres psql"
 ## remote
 alias psu="ssh cmd6@unix.cs.pdx.edu"
 alias cw="ssh chrisweb.mrn.org"
+alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias gwd="grunt watch:dev &"
