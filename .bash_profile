@@ -1,3 +1,4 @@
+#!/bin/bash
 # Get system data
 ARCTCTR=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
