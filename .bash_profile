@@ -145,6 +145,9 @@ else
     export NVM_DIR="/home/cdieringer/.nvm"
 fi
 
+# node
+NODE_ENV=development
+
 # nvm config
 if [[ $OS == 'Darwin' ]]; then
     export NVM_DIR="/Users/cdieringer/.nvm"
