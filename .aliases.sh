@@ -95,7 +95,6 @@ alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
 droplet () { ssh "$DROPLET_IP"; }
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
-alias gwd="grunt watch:dev &"
 alias gwall="cc; grunt concurrent:watchAll &"
 alias gwa="cc; grunt concurrent:ampersand &"
 alias zedhere="zedrem -key $zedkey ."

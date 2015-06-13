@@ -146,9 +146,6 @@ else
     export NVM_DIR="/home/cdieringer/.nvm"
 fi
 
-# node
-NODE_ENV=development
-
 # nvm config
 if [[ $OS == 'Darwin' ]]; then
     export NVM_DIR="/Users/cdieringer/.nvm"
@@ -164,3 +161,6 @@ fi
 if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
+
+# node
+export NODE_ENV="development"
