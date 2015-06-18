@@ -35,6 +35,7 @@ esac
 # config
 export EDITOR='vim' #default
 alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
+alias dbmapdc="sudo $EDITOR /coins/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
@@ -94,6 +95,11 @@ alias cw="ssh chrisweb.mrn.org"
 alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
 droplet () { ssh "$DROPLET_IP"; }
+ballervim () {
+    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && \
+    cd ~/.vim/bundle && rm -rf vim-colors-solarized && git clone git://github.com/altercation/vim-colors-solarized.git
+}
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias gwall="cc;cd js/browserApp; grunt concurrent:watchAll --watch &"
 alias gwa="cc; cd js/browserApp; grunt concurrent:browserify --watch &"
