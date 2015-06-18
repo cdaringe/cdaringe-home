@@ -95,11 +95,7 @@ alias cw="ssh chrisweb.mrn.org"
 alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
 droplet () { ssh "$DROPLET_IP"; }
-ballervim () {
-    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && \
-    cd ~/.vim/bundle && rm -rf vim-colors-solarized && git clone git://github.com/altercation/vim-colors-solarized.git
-}
+
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 alias gwall="cc;cd js/browserApp; grunt concurrent:watchAll --watch &"
 alias gwa="cc; cd js/browserApp; grunt concurrent:browserify --watch &"
@@ -126,16 +122,16 @@ alias gcm='git checkout master'
 alias gd='git diff --ignore-space-change --ignore-all-space'
 alias gh="git config --get remote.origin.url"
 
-function gconfigme() {
-    echo "Setting git config params";
-    echo "git config --global user.name \"cdaringe\"";
-    echo `git config --global user.name \"cdaringe\"`;
-    echo "git config --global user.email \"cdaringe@gmail.com\"";
-    echo `git config --global user.email \"cdaringe@gmail.com\"`;
+ballervim () {
+    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && \
+    cd ~/.vim/bundle && \
+    rm -rf vim-colors-solarized && git clone git://github.com/altercation/vim-colors-solarized.git && \
+    rm -rf syntastic && git clone https://github.com/scrooloose/syntastic.git
 }
-function gcr() {
-  echo "git checkout -b $1 origin/$1";
-  echo `git checkout -b $1 origin/$1`;
+gconfigme() {
+    git config --global user.name cdaringe && \
+    git config --global user.email cdaringe@gmail.com
 }
 
 ## compression
@@ -247,7 +243,7 @@ alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~;git add package.json .aliases.sh .dbfuncs.sh .env.sh .bash_profile .bashrc .zshrc .vimrc; git commit -m 'Config updates';gp;git push origin master;sourceme)"
+alias uall="(cd ~;git add package.json .aliases.sh .dbfuncs.sh .bash_profile .bashrc .zshrc .vimrc; git commit -m 'Config updates';gp;git push origin master;sourceme)"
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
