@@ -163,4 +163,5 @@ if [ -f ~/bin/rmate ]; then
 fi
 
 # node
+export COINS_ENV="development"
 export NODE_ENV="development"
