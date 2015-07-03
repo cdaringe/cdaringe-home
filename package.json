@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "cdaringe-home",
   "main": "index.js",
-  "jscsConfig": "node/javascriptStyleguide/linters/.jscs.json",
-  "dependencies": {
-  },
-  "devDependencies": {
-  },
   "jscsConfig": "node_modules/jscs/presets/airbnb.json",
-  "scripts": {
+  "dependencies": {
+    "lodash": "^3.9.3"
   },
+  "devDependencies": {},
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/cdaringe/cdaringe-home.git"
