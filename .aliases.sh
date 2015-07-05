@@ -106,6 +106,7 @@ alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
 
 # git
 alias gs="git status"
+alias ghp="bundle exec jekyll serve" # serve the jekyll github pages site
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
 alias gpushd="git push origin develop"
