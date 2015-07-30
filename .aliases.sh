@@ -92,6 +92,7 @@ alias pglogon="sudo -u postgres psql"
 ## remote
 alias psu="ssh cmd6@unix.cs.pdx.edu"
 alias cw="ssh chrisweb.mrn.org"
+alias cb="ssh coinsbuilder@lintcoin"
 alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
 alias lc="cd /coins/vagrant/localcoin"
@@ -253,6 +254,7 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
 export PATH=/home/$USER/node/:$PATH
 alias nvm10="nvm use 0.10.30"
 alias nvm11="nvm use 0.11.13"
+alias nvm12="nvm use v0.12.6"
 alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
 alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
 

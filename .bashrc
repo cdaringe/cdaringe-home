@@ -111,3 +111,4 @@ export NVM_DIR="/Users/cdieringer/.nvm"
 
 # node
 NODE_ENV="development"
+COINS_ENV="development"
