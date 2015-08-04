@@ -58,8 +58,9 @@ alias .....="cd ../../../.."
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
-webroot="/var/www/html"
+export webroot="/var/www/html"
 alias www="cd $webroot"
+alias ba="cc && cd js/browserApp"
 alias cas="cd $webroot/cas"
 alias cc="cd $webroot/coins_core"
 alias amp="cc;cd js/browserApp/ampersand;"
@@ -92,8 +93,10 @@ alias pglogon="sudo -u postgres psql"
 ## remote
 alias psu="ssh cmd6@unix.cs.pdx.edu"
 alias cw="ssh chrisweb.mrn.org"
+alias cb="ssh coinsbuilder@lintcoin"
 alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
+alias lc="cd /coins/vagrant/localcoin"
 droplet () { ssh "$DROPLET_IP"; }
 
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
@@ -105,6 +108,7 @@ alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
 
 # git
 alias gs="git status"
+alias ghp="bundle exec jekyll serve" # serve the jekyll github pages site
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
 alias gpushd="git push origin develop"
@@ -251,6 +255,7 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
 export PATH=/home/$USER/node/:$PATH
 alias nvm10="nvm use 0.10.30"
 alias nvm11="nvm use 0.11.13"
+alias nvm12="nvm use v0.12.6"
 alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
 alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
 
