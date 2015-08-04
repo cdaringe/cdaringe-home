@@ -162,6 +162,3 @@ if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
 
-# node
-export COINS_ENV="development"
-export NODE_ENV="development"
