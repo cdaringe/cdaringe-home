@@ -37,8 +37,8 @@ export EDITOR='vim' #default
 alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbmapdc="sudo $EDITOR /coins/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
-alias gozsh="chsh -s $(which zsh) $USER"
-alias gobash="chsh -s $(which bash) $USER"
+alias gozsh="export ZSHPATH=$(which zsh) && chsh -s $ZSHPATH $USER && echo 'zsh time, peepers'"
+alias gobash="export BASHPATH=$(which bash) && chsh -s $BASHPATH $USER && echo 'big bashin, spending gs'"
 alias getsecrets="scp chrisweb:~/.secrets ~/"
 
 # sys
@@ -248,7 +248,7 @@ alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~;git add package.json .aliases.sh .dbfuncs.sh .bash_profile .bashrc .zshrc .vimrc; git commit -m 'Config updates';gp;git push origin master;sourceme)"
+alias uall="(cd ~ && git add .aliases.sh .dbfuncs.sh .bash_profile .bashrc .zshrc .vimrc && git commit -m 'Config updates';gp;git push origin master && sourceme)"
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
