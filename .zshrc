@@ -5,19 +5,14 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
-# ZSH_THEME="random"
-# ZSH_THEME="avit"
-# ZSH_THEME="agnoster"
-# sunaku
-# ZSH_THEME="jonathan" ## great horitzontal line breaks and colors
-ZSH_THEME=terminalparty ## clean git stuff to the right, no lefthand bloat. and colors
-
-# Example aliases
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -31,16 +26,16 @@ ZSH_THEME=terminalparty ## clean git stuff to the right, no lefthand bloat. and 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -53,23 +48,15 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git  osx colorize mosh fasd bower node npm brew)
-# zstyle ':completion:*' accept-exact '*(N)'
-# zstyle ':completion:*' use-cache on
-# zstyle ':completion:*' cache-path ~/.zsh/cache
-
-source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases.sh
-source $HOME/.dbfuncs.sh
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
 # User configuration
 
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local:$PATH
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/sbin:/usr/local/bin
-export PATH=$PATH:$JAVA_HOME/bin:/opt/liquibase
-export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
 
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -86,40 +73,14 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 #
-`git config --global color.ui auto`
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# javacc
-if [[ $OS == 'Darwin' ]]; then
-    if [ -f "$HOME/dev/javacc-5.0/bin/javacc" ]; then
-        export PATH="$PATH:$HOME/dev/javacc-5.0/bin/"
-    fi
-fi
-
-# nvm config
-if [[ $OS == 'Darwin' ]]; then
-    export NVM_DIR="/Users/cdaringe/.nvm"
-else
-    export NVM_DIR="/home/cdieringer/.nvm"
-fi
-if [ -f "$NVM_DIR/nvm.sh" ]; then
-	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-	if [[ $OS == 'Darwin' ]]; then
-	    echo `nvm use 0.11.13`;
-	else
-	   # echo `nvm use 0.10.30`;
-	fi
-fi
-
-# python
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-    echo "...python virtual environment loaded";
-fi
-
-# bin
-if [ -f ~/bin/rmate ]; then
-    export PATH="$PATH:$HOME/bin"
-fi
+. ~/.common.sh

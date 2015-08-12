@@ -1,44 +1,12 @@
 #!/bin/bash
-# Get system data
-ARCTCTR=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
-
-if [ -f /etc/lsb-release ]; then
-    . /etc/lsb-release
-    OS=$DISTRIB_ID
-    VER=$DISTRIB_RELEASE
-elif [ -f /etc/debian_version ]; then
-    OS="ubuntu"  # XXX or Ubuntu??
-    VER=$(cat /etc/debian_version)
-elif [ -f /etc/yum.conf ]; then
-    OS=centos
-    VER=crappy-version
-elif [ -f /bin/pacman ]; then
-    OS="arch"
-    VER="?"
-else
-    OS=$(uname -s)
-    VER=$(uname -r)
-fi
-
-case $(uname -m) in
-x86_64)
-    BITS=64
-    ;;
-i*86)
-    BITS=32
-    ;;
-*)
-    BITS=?
-    ;;
-esac
 
 # config
 export EDITOR='vim' #default
 alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
 alias dbmapdc="sudo $EDITOR /coins/coins_auth/conn/dbmap.json"
 alias dbf="cd /var/lib/coins_auth/conn"
-alias gozsh="export ZSHPATH=$(which zsh) && chsh -s $ZSHPATH $USER && echo 'zsh time, peepers'"
-alias gobash="export BASHPATH=$(which bash) && chsh -s $BASHPATH $USER && echo 'big bashin, spending gs'"
+alias gozsh="chsh -s $(which zsh) $USER"
+alias gobash="chsh -s $(which bash) $USER"
 alias getsecrets="scp chrisweb:~/.secrets ~/"
 
 # sys
@@ -248,7 +216,7 @@ alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~ && git add .aliases.sh .dbfuncs.sh .bash_profile .bashrc .zshrc .vimrc && git commit -m 'Config updates';gp;git push origin master && sourceme)"
+alias uall="(cd ~;git add package.json .aliases.sh .dbfuncs.sh .bash_profile .bashrc .zshrc .vimrc; git commit -m 'Config updates';gp;git push origin master;sourceme)"
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
