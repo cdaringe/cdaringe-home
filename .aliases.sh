@@ -23,6 +23,9 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
@@ -216,7 +219,7 @@ alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
 alias aliases="$EDITOR ~/.aliases.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~;git add package.json .aliases.sh .dbfuncs.sh .bash_profile .bashrc .zshrc .vimrc; git commit -m 'Config updates';gp;git push origin master;sourceme)"
+alias uall="(cd ~ && git add .aliases.sh .bash_profile .bashrc .zshrc .vimrc &&  git commit -m 'Config updates' && gp && git push origin master && sourceme)"
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
