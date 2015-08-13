@@ -19,11 +19,7 @@ else
 fi
 if [ -f "$NVM_DIR/nvm.sh" ]; then
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-    if [[ $OS == 'Darwin' ]]; then
-        echo `nvm use 0.11.13`;
-    else
-       # echo `nvm use 0.10.30`;
-    fi
+       echo `nvm use 0.12.7`;
 fi
 
 
@@ -31,3 +27,6 @@ fi
 if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
