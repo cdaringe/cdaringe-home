@@ -1,11 +1,10 @@
+if [ -f ~/.env.sh ]; then
+    . ~/.env.sh
+fi
+
 if [ -f ~/.aliases.sh ]; then
     . ~/.aliases.sh
 fi
-if [ -f ~/.env.sh ]; then
-    . ~/.env.sh
-    echo "env configuration found - warning: may override sys defaults!"
-fi
-
 
 # git
 `git config --global color.ui auto`
