@@ -187,7 +187,6 @@ elif [[ $OS == 'Darwin' ]]; then
     fi
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
 elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
-    export EDITOR='rmate'
     alias serverconf="sudo $EDITOR /etc/apache2/apache2.conf"
     alias siteconf="sudo $EDITOR /etc/apache2/envvars"
 
