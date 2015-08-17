@@ -3,7 +3,6 @@ if [ -f ~/.aliases.sh ]; then
 fi
 if [ -f ~/.env.sh ]; then
     . ~/.env.sh
-    echo "env configuration found - warning: may override sys defaults!"
 fi
 
 

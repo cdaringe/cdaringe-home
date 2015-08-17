@@ -67,7 +67,8 @@ alias cw="ssh chrisweb.mrn.org"
 alias cb="ssh coinsbuilder@lintcoin"
 alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
-alias lc="cd /coins/localcoin"
+alias lcd="cd /coins/localcoin"
+alias lc="ssh $USER@localhost -p 2222" # localcoin logon!
 droplet () { ssh "$DROPLET_IP"; }
 
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
