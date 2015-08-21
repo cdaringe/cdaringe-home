@@ -68,6 +68,7 @@ alias cb="ssh coinsbuilder@lintcoin"
 alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
 alias lcd="cd /coins/localcoin"
+alias lcdc="cd /coins/localcoin/coins/www/html"
 alias lc="ssh $USER@localhost -p 2222" # localcoin logon!
 droplet () { ssh "$DROPLET_IP"; }
 
