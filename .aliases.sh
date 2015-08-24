@@ -17,6 +17,8 @@ alias shasum="sha1sum"
 # apps
 alias javaversion="sudo update-alternatives --config java"
 alias phpdebug="~/.phpdebug.sh"
+alias couch2="~/dev/couchdb/dev/run"
+alias couch2proxy="haproxy -f ~/dev/couchdb/rel/haproxy.cfg"
 
 # file
 alias ..="cd .."
