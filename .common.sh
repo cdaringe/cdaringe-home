@@ -21,11 +21,9 @@ if [ -f "$NVM_DIR/nvm.sh" ]; then
        echo `nvm use 0.12.7`;
 fi
 
-
 # bin
 if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+export DROPLET_IP="104.236.146.16"
