@@ -13,6 +13,7 @@ alias getsecrets="scp chrisweb:~/.secrets ~/"
 alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 alias shasum="sha1sum"
+alias backupdroplet="rsync -avz $DROPLET_IP:/www/ ~/Dropbox/backup"
 
 # apps
 alias javaversion="sudo update-alternatives --config java"
