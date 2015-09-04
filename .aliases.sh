@@ -13,7 +13,7 @@ alias getsecrets="scp chrisweb:~/.secrets ~/"
 alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 alias shasum="sha1sum"
-alias backupdroplet="rsync -avz $DROPLET_IP:/www/ ~/Dropbox/backup"
+alias backupdroplet="rsync -avz $DROPLET_IP:/www/ ~/Dropbox/backup/www && rsync -avz --exclude-from '/Users/cdieringer/Dropbox/backup/exclude-ghost.txt' $DROPLET_IP:/ghost/ ~/Dropbox/backup/ghost"
 
 # apps
 alias javaversion="sudo update-alternatives --config java"
