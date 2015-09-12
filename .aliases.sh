@@ -2,9 +2,8 @@
 
 # config
 export EDITOR='vim' #default
-alias dbmap="sudo $EDITOR /var/lib/coins_auth/conn/dbmap.json"
+alias dbmap="sudo $EDITOR /coins/coins_auth/conn/dbmap.json"
 alias dbmapdc="sudo $EDITOR /coins/coins_auth/conn/dbmap.json"
-alias dbf="cd /var/lib/coins_auth/conn"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
 alias getsecrets="scp chrisweb:~/.secrets ~/"
@@ -20,6 +19,7 @@ alias javaversion="sudo update-alternatives --config java"
 alias phpdebug="~/.phpdebug.sh"
 alias couch2="~/dev/couchdb/dev/run"
 alias couch2proxy="haproxy -f ~/dev/couchdb/rel/haproxy.cfg"
+alias s.="sublime ."
 
 # file
 alias ..="cd .."
