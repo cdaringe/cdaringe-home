@@ -5,6 +5,7 @@
 !/.zshrc
 !/.aliases.sh
 !/.dbfuncs.sh
+!/.env.sh
 Applications/
 Desktop/
 Documents/
