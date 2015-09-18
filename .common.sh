@@ -1,3 +1,7 @@
+if [ -f ~/.secrets.sh ]; then
+    . ~/.secrets.sh
+fi
+
 if [ -f ~/.env.sh ]; then
     . ~/.env.sh
 fi
