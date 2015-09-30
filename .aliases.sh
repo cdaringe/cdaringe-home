@@ -20,6 +20,7 @@ alias phpdebug="~/.phpdebug.sh"
 alias couch2="~/dev/couchdb/dev/run"
 alias couch2proxy="haproxy -f ~/dev/couchdb/rel/haproxy.cfg"
 alias s.="sublime ."
+alias a.="atom ."
 
 # file
 alias ..="cd .."
