@@ -20,6 +20,7 @@ alias phpdebug="~/.phpdebug.sh"
 alias couch2="~/dev/couchdb/dev/run"
 alias couch2proxy="haproxy -f ~/dev/couchdb/rel/haproxy.cfg"
 alias s.="sublime ."
+alias a.="atom ."
 
 # file
 alias ..="cd .."
@@ -153,7 +154,7 @@ if [[ $OS == 'centos' ]]; then
     export slog="$EDITOR /var/log/secure"
 
 elif [[ $OS == 'Darwin' ]]; then
-    export EDITOR="sublime"
+    export EDITOR="atom"
     if [ -f "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ]
         then
         alias sublime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
