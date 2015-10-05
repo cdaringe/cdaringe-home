@@ -124,6 +124,7 @@ alias untar="tar -xvf $1"
 # Note: some server aliases maintained in env.sh
 alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
 alias syslog="$EDITOR /var/log/syslog"
+alias coinsssllog="$EDITOR /coins/www/logs/ssl_error.log"
 # Toggle logstashing across sessions
 logstashConf="/etc/logstash-forwarder"
 lsOff="_off"
