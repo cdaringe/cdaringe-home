@@ -30,3 +30,8 @@ i*86)
     BITS=?
     ;;
 esac
+
+dev() {
+    export COINS_ENV='development'
+    export NODE_ENV='development'
+}
