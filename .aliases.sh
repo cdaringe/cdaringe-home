@@ -69,7 +69,7 @@ alias pglogon="sudo -u postgres psql"
 ## remote
 alias psu="ssh cmd6@unix.cs.pdx.edu"
 alias cw="ssh chrisweb.mrn.org"
-alias cb="ssh coinsbuilder@lintcoin"
+alias cb="ssh tmplintcoin"
 alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
 alias oc="ssh opscoin.mind.unm.edu"
@@ -156,11 +156,6 @@ if [[ $OS == 'centos' ]]; then
 
 elif [[ $OS == 'Darwin' ]]; then
     export EDITOR="atom"
-    if [ -f "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ]
-        then
-        alias sublime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
-        alias subl="sublime"
-    fi
     if [ -f "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" ]
         then
         alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
@@ -189,11 +184,6 @@ elif [[ $OS == 'Darwin' ]]; then
 
     alias phpini="sudo $EDITOR /private/etc/php.ini.default"
 
-    #set sublime to default editor. gen symlink for executing via cmd line
-    if [ "$EDITOR" != 'sublime' ]; then export EDITOR='sublime'; fi;
-    if [[ ! -f //usr/local/bin/sublime ]]; then
-      echo `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime`
-    fi
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
 elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
     alias serverconf="sudo $EDITOR /etc/apache2/apache2.conf"
