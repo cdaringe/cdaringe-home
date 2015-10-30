@@ -116,7 +116,8 @@ ballervim () {
 }
 gconfigme() {
     git config --global user.name cdaringe && \
-    git config --global user.email cdaringe@gmail.com
+    git config --global user.email cdaringe@gmail.com \
+    git config --gbobal core.editor "vim"
 }
 
 ## compression
