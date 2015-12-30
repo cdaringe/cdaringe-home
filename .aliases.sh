@@ -307,10 +307,8 @@ alias network="sudo $EDITOR /etc/network/interfaces"
 alias startup="sudo $EDITOR /etc/rc.local"
 alias powerdown="sudo shutdown -hP -t 1 now"
 
-# test
-alias moc="mocha --recursive --bail"
-alias mocc="moc --reporter mocha-istanbul"
-alias mocs="moc --reporter spec "
+# browser
+alias jslog="echo 'log = function() { a=arguments; i=0; while(a[i]) { console.log(a[i]);++i; } }'"
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
