@@ -7,6 +7,7 @@ alias dbmapdc="sudo $EDITOR /coins/coins_auth/conn/dbmap.json"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
 alias getsecrets="scp devcoin4:~/.secrets.sh ~/"
+alias sed-replace="echo \"sed -i '' 's/::find::/::replace::/' **/*.js\""
 
 # sys
 alias sudoers="sudo vim /etc/sudoers"
@@ -85,6 +86,13 @@ alias gwa="cc; cd js/browserApp; grunt concurrent:browserify --watch &"
 alias zedhere="zedrem -key $zedkey ."
 alias zedserver="usr/bin/zedrem -- --server &"
 alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
+
+# npm
+alias ni="npm install"
+alias nis="npm install --save"
+alias nisd="npm install --save-dev"
+alias nr="npm remove"
+alias nrs="npm remove --save --save-dev" # becase 99% of the time, i want to scrap both
 
 # git
 alias gs="git status"
@@ -225,68 +233,9 @@ alias uall="(cd ~ && git add .gitignore .aliases.sh .common.sh .env.sh .bash_pro
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
 export PATH=/home/$USER/node/:$PATH
-alias nvm10="nvm use 0.10.30"
-alias nvm11="nvm use 0.11.13"
-alias nvm12="nvm use v0.12.6"
-alias unlock="sudo rm /var/run/node.lock /var/run/forever.lock"
-alias killtasker="sudo kill $(ps aux | grep '[n]ode ' | awk '{print $2}')"
-
-## httpster
-alias httpup="httpster /Users/cdieringer/ &"
-alias httpdown="kill $(ps aux | grep '[h]ttpster' | awk '{print $2}')"
-
-## screen
-# kill detached
-killd () {
-    screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
-}
-# kill all
-killa () {
-    screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
-    screen -ls | grep tached | cut -d. -f1 | awk '{print $1}' | xargs kill
-}
-
-
-# kag - kill all grunt tasks
-function kag() {
-    i=0
-    pgrep grunt | while read -r line ; do
-        kill $line
-        let i=i+1
-    done
-    echo "killed $i grunt processes"
-}
-
-# Requires COINS beautifulcodeClient
-function formatFile() {
-    if [ $# -ge 1 ]
-    then
-        if [ $# -ge 2 ]
-        then
-            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 format $2
-        else
-            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 format
-        fi
-    else
-        echo "no input filename provided";
-    fi
-}
-# Requires COINS beautifulcodeClient
-function lintFile() {
-    if [ $# -ge 1 ]
-    then
-        if [ $# -ge 2 ]
-        then
-            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 lint $2
-        else
-            php /usr/local/php/beautifulcodeClient/sendFileToCleaners.php $1 lint
-        fi
-    else
-        echo "no input filename provided";
-    fi
-}
-export lintFile
-export formatFile
+alias npmo="(cd ~/.local-npm && local-npm &)"
+alias npm-local="npm set registry http://127.0.0.1:5080"
+alias npm-std="npm set registry https://registry.npmjs.org"
 
 # profile
 alias zshconfig="$EDITOR ~/.zshrc"
@@ -312,3 +261,5 @@ alias jslog="echo 'log = function() { a=arguments; i=0; while(a[i]) { console.lo
 
 # Get weird
 echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
+
+alias mininet="ssh -R 52698:localhost:52698 -X mininet@192.168.56.10"
