@@ -2,8 +2,7 @@
 
 # config
 export EDITOR='vim' #default
-alias dbmap="sudo $EDITOR /coins/coins_auth/conn/dbmap.json"
-alias dbmapdc="sudo $EDITOR /coins/coins_auth/conn/dbmap.json"
+alias dbmap="sudo $EDITOR /coins/config/dbmap.json"
 alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
 alias getsecrets="scp devcoin4:~/.secrets.sh ~/"
