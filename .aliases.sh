@@ -47,6 +47,8 @@ alias oCoins="cd $webroot/oCoins/app"
 alias ocoins="oCoins"
 alias uo="(ocoins;grunt;)"
 alias portals="cd $webroot/portals"
+alias qb="cd ~/node/quarterback"
+alias sp="qb && cd packages/steelpenny"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -103,7 +105,7 @@ ballervim () {
     rm -rf syntastic && git clone https://github.com/scrooloose/syntastic.git && \
     rm -rf vdebug && git clone git@github.com:joonty/vdebug.git
 }
-alias git-config-cdaringe="git config --global user.name cdaringe && git config --global user.email cdaringe@gmail.com && git config --global core.editor vim"
+alias git-config-cdaringe="git config --global user.name cdaringe && git config --global user.email christopher.dieringer@gmail.com && git config --global core.editor vim"
 alias git-config-gatech="git config --global user.name cdieringer3 && git config --global user.email cdieringer3@gatech.edu && git config --global core.editor vim"
 
 ## compression
@@ -143,7 +145,7 @@ alias aliases="$EDITOR ~/.aliases.sh"
 alias secrets="$EDITOR ~/.secrets.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~ && git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .zshrc .vimrc && git commit -m 'Config updates' && gp && git push origin master && sourceme)"
+alias uall="(cd ~ && git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .zshrc .vimrc -f && git commit -m 'Config updates' && gp && git push origin master && sourceme)"
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
