@@ -180,3 +180,7 @@ alias jslog="echo 'log = function() { a=arguments; i=0; while(a[i]) { console.lo
 echo "CHA-CHING! ${NICKNAME:=$USER} is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
 
 alias mininet="ssh -R 52698:localhost:52698 -X mininet@192.168.56.10"
+
+moveToGif() {
+      `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=5 --delay=10 > $1.gif`
+  }
