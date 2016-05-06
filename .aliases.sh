@@ -15,8 +15,6 @@ alias shasum="sha1sum"
 alias backupdroplet="rsync -avz $DROPLET_IP:/www/ ~/Dropbox/backup/www && rsync -avz --exclude-from '/Users/cdieringer/Dropbox/backup/exclude-ghost.txt' $DROPLET_IP:/ghost/ ~/Dropbox/backup/ghost"
 
 # apps
-alias javaversion="sudo update-alternatives --config java"
-alias phpdebug="~/.phpdebug.sh"
 alias couch2="~/dev/couchdb/dev/run"
 alias couch2proxy="haproxy -f ~/dev/couchdb/rel/haproxy.cfg"
 alias s.="sublime ."
@@ -49,6 +47,8 @@ alias oCoins="cd $webroot/oCoins/app"
 alias ocoins="oCoins"
 alias uo="(ocoins;grunt;)"
 alias portals="cd $webroot/portals"
+alias qb="cd ~/node/quarterback"
+alias sp="qb && cd packages/steelpenny"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -67,9 +67,6 @@ alias l='ls -CF'
 alias pglogon="sudo -u postgres psql"
 
 ## remote
-alias psu="ssh cmd6@unix.cs.pdx.edu"
-alias cw="ssh chrisweb.mrn.org"
-alias cb="ssh tmplintcoin"
 alias ct="ssh coinstraining.mrn.org"
 alias dc="ssh devcoin4.mrn.org"
 alias oc="ssh opscoin.mind.unm.edu"
@@ -80,22 +77,9 @@ alias lc="ssh $USER@localhost -p 2222" # localcoin logon!
 droplet () { ssh "$DROPLET_IP"; }
 
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
-alias gwall="cc;cd js/browserApp; grunt concurrent:watchAll --watch &"
-alias gwa="cc; cd js/browserApp; grunt concurrent:browserify --watch &"
-alias zedhere="zedrem -key $zedkey ."
-alias zedserver="usr/bin/zedrem -- --server &"
-alias installzed="curl http://get.zedapp.org | bash; sudo mv zedrem /usr/bin"
-
-# npm
-alias ni="npm install"
-alias nis="npm install --save"
-alias nisd="npm install --save-dev"
-alias nr="npm remove"
-alias nrs="npm remove --save --save-dev" # becase 99% of the time, i want to scrap both
 
 # git
 alias gs="git status"
-alias ghp="bundle exec jekyll serve" # serve the jekyll github pages site
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
 alias gpushd="git push origin develop"
@@ -121,49 +105,21 @@ ballervim () {
     rm -rf syntastic && git clone https://github.com/scrooloose/syntastic.git && \
     rm -rf vdebug && git clone git@github.com:joonty/vdebug.git
 }
-gconfigme() {
-    git config --global user.name cdaringe && \
-    git config --global user.email cdaringe@gmail.com \
-    git config --gbobal core.editor "vim"
-}
+alias git-config-cdaringe="git config --global user.name cdaringe && git config --global user.email christopher.dieringer@gmail.com && git config --global core.editor vim"
+alias git-config-gatech="git config --global user.name cdieringer3 && git config --global user.email cdieringer3@gatech.edu && git config --global core.editor vim"
 
 ## compression
 alias untar="tar -xvf $1"
 
 #** SERVER **#
-# Note: some server aliases maintained in env.sh
-alias ddclienttest="sudo ddclient -daemon=0 -debug -verbose -noquiet"
 alias syslog="$EDITOR /var/log/syslog"
-alias coinsssllog="$EDITOR /coins/www/logs/ssl_error.log"
-# Toggle logstashing across sessions
-logstashConf="/etc/logstash-forwarder"
-lsOff="_off"
-lsOn="_on"
-alias logstashoff="sudo rm $logstashConf;sudo ln -s $logstashConf$lsOff $logstashConf; sudo service logstash-forwarder stop &;"
-alias logstashon=" sudo rm $logstashConf;sudo ln -s $logstashConf$lsOn  $logstashConf; sudo service logstash-forwarder start &;"
-alias phplog="syslog"
 alias ports="sudo netstat -plunt"
 
 if [[ $OS == 'centos' ]]; then
-    ## apache
-    alias serverconf="sudo $EDITOR /etc/httpd/conf/httpd.conf"
-    alias sslconf="sudo $EDITOR /etc/httpd/conf.d/ssl.conf"
-
-    alias serverrestart="sudo /sbin/service httpd restart"
-    alias serverstop="sudo /sbin/service httpd stop"
-    alias serverstart="sudo /sbin/service httpd start"
-
-    alias networkingrestart="sudo /etc/init.d/network restart"
     #php
     alias phpini="sudo $EDITOR /etc/php.ini"
 
-    # ops
-    export PATH=/usr/sbin:$PATH
-    export log="$EDITOR /var/log/messages"
-    export slog="$EDITOR /var/log/secure"
-
 elif [[ $OS == 'Darwin' ]]; then
-    export EDITOR="atom"
     if [ -f "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" ]
         then
         alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
@@ -176,58 +132,20 @@ elif [[ $OS == 'Darwin' ]]; then
     alias dsoff="defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
     alias dson="defaults write com.apple.desktopservices DSDontWriteNetworkStores false"
 
-    # assume Mavericks
-    alias serverconf="sudo $EDITOR /private/etc/apache2/httpd.conf"
-    alias servervhosts="sudo $EDITOR /private/etc/apache2/extra/httpd-vhosts.conf"
-    alias hosts="sudo $EDITOR /private/etc/hosts"
-
-    alias serverrestart="sudo apachectl restart"
-    alias serverstop="sudo apachectl stop"
-    alias serverstart="sudo apachectl start"
-    alias serververify="sudo apachectl -t"
-
     adduser() {
         sudo dseditgroup -o edit -a $1 -t user $2
     }
 
-    alias phpini="sudo $EDITOR /private/etc/php.ini.default"
-
     export PATH=/home/$USER/node/selenium_drvers_osx/:$PATH
-elif [[ $OS == 'ubuntu' ||  $OS == 'Ubuntu' ]]; then
-    alias serverconf="sudo $EDITOR /etc/apache2/apache2.conf"
-    alias siteconf="sudo $EDITOR /etc/apache2/envvars"
-
-    alias serverrestart="sudo /etc/init.d/apache2 restart"
-    alias serverstop="sudo /etc/init.d/apache2 stop"
-    alias serverstart="sudo /etc/init.d/apache2 start"
-
-    alias serverloga="sudo $EDITOR /var/log/apache2/access.log"
-    alias serverloge="sudo $EDITOR /var/log/apache2/error.log"
-    alias serverlogo="sudo $EDITOR /var/log/apache2/other_vhosts_access.log"
-    alias serverlogcleare="sudo rm /var/log/apache2/error.log"
-    alias sitecoins="sudo $EDITOR /etc/apache2/sites-available/coins-ssl"
-
-    #php
-    alias phpini="sudo $EDITOR /etc/php5/apache2/php.ini"
-
-elif [[ $OS == "arch" ]]; then
-    fail2banconf="sudo vim /etc/fail2ban/jail.conf"
-    restartssh="sudo systemctl restart sshd"
-
-    #ops
-    export log="$EDITOR /var/log/syslog"
-    export slog="$EDITOR /var/log/auth.log"
 fi
 
 # vim
 alias vimrc="$EDITOR ~/.vimrc"
-alias covimsrv="python ~/.vim/bundle/CoVim/plugin/CoVimServer.py"
-
 alias aliases="$EDITOR ~/.aliases.sh"
 alias secrets="$EDITOR ~/.secrets.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~ && git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .zshrc .vimrc && git commit -m 'Config updates' && gp && git push origin master && sourceme)"
+alias uall="(cd ~ && git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .zshrc .vimrc -f && git commit -m 'Config updates' && gp && git push origin master && sourceme)"
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
@@ -259,6 +177,10 @@ alias powerdown="sudo shutdown -hP -t 1 now"
 alias jslog="echo 'log = function() { a=arguments; i=0; while(a[i]) { console.log(a[i]);++i; } }'"
 
 # Get weird
-echo "CHA-CHING! $NICKNAME is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
+echo "CHA-CHING! ${NICKNAME:=$USER} is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
 
 alias mininet="ssh -R 52698:localhost:52698 -X mininet@192.168.56.10"
+
+moveToGif() {
+      `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=5 --delay=10 > $1.gif`
+  }
