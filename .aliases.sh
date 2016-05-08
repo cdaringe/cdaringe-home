@@ -45,6 +45,9 @@ alias p2="cd $webroot/p2"
 alias asmt="cd $webroot/micis/asmt"
 alias oCoins="cd $webroot/oCoins/app"
 alias ocoins="oCoins"
+alias cui="cd ~/node/coinstac-ui"
+alias ccm="cd ~/node/coinstac-common"
+alias ccc="cd ~/node/coinstac-client-core"
 alias uo="(ocoins;grunt;)"
 alias portals="cd $webroot/portals"
 alias qb="cd ~/node/quarterback"
@@ -181,6 +184,6 @@ echo "CHA-CHING! ${NICKNAME:=$USER} is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
 
 alias mininet="ssh -R 52698:localhost:52698 -X mininet@192.168.56.10"
 
-moveToGif() {
-      `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=5 --delay=10 > $1.gif`
-  }
+movToGif() {
+  `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=5 --delay=10 > $1.gif`
+}
