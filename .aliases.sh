@@ -20,7 +20,10 @@ alias couch2proxy="haproxy -f ~/dev/couchdb/rel/haproxy.cfg"
 alias s.="sublime ."
 alias a.="atom ."
 
-# file
+alias node4="/usr/local/n/versions/node/4.4.3/bin/node"
+alias npm2="/usr/local/n/versions/node/4.4.3/bin/npm"
+
+# file  
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -33,7 +36,6 @@ alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
 export webroot="/var/www/html"
 alias www="cd $webroot"
-alias nod="cd ~/node"
 alias ba="cc && cd js/browserApp"
 alias cas="cd $webroot/cas"
 alias cc="cd $webroot/coins_core"
@@ -185,5 +187,10 @@ echo "CHA-CHING! ${NICKNAME:=$USER} is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
 alias mininet="ssh -R 52698:localhost:52698 -X mininet@192.168.56.10"
 
 movToGif() {
-  `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=5 --delay=10 > $1.gif`
+  `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=5 --delay=10 > $1.gif`;
+}
+
+# dirsize
+dir-size () {
+  du -L -h -d 1 $1 | gsort -h;
 }
