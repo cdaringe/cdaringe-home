@@ -22,6 +22,7 @@ alias a.="atom ."
 
 alias node4="/usr/local/n/versions/node/4.4.3/bin/node"
 alias npm2="/usr/local/n/versions/node/4.4.3/bin/npm"
+alias pruny="npm prune && npm install"
 
 # file  
 alias ..="cd .."
