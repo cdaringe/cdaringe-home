@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# dirty-windows-bash
+alias twsrc="cd /c/Users/Cdieringer/Documents/src"
+
 # config
 export EDITOR='vim' #default
 alias dbmap="sudo $EDITOR /coins/config/dbmap.json"
