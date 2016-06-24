@@ -6,7 +6,6 @@ alias twsrc="cd /c/Users/Cdieringer/Documents/src"
 # config
 export EDITOR='vim' #default
 alias dbmap="sudo $EDITOR /coins/config/dbmap.json"
-alias gozsh="chsh -s $(which zsh) $USER"
 alias gobash="chsh -s $(which bash) $USER"
 alias getsecrets="scp devcoin4:~/.secrets.sh ~/"
 alias sed-replace="echo \"sed -i '' 's/::find::/::replace::/' **/*.js\""
@@ -154,7 +153,7 @@ alias aliases="$EDITOR ~/.aliases.sh"
 alias secrets="$EDITOR ~/.secrets.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~ && git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .zshrc .vimrc -f && git commit -m 'Config updates' && gp && git push origin master && sourceme)"
+alias uall="(cd ~ && git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .vimrc -f && git commit -m 'Config updates' && gp && git push origin master && sourceme)"
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
@@ -164,12 +163,8 @@ alias npm-local="npm set registry http://127.0.0.1:5080"
 alias npm-std="npm set registry https://registry.npmjs.org"
 
 # profile
-alias zshconfig="$EDITOR ~/.zshrc"
 alias bashconfig="$EDITOR ~/.bash_profile"
-if [ -n "${ZSH_VERSION}" ]; then
-    alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-    alias sourceme="source ~/.zshrc"
-elif [ -n "${BASH_VERSION}" ]; then
+if [ -n "${BASH_VERSION}" ]; then
     alias sourceme="source ~/.bash_profile"
 fi
 
