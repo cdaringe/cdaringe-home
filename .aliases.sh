@@ -113,8 +113,8 @@ ballervim () {
     rm -rf syntastic && git clone https://github.com/scrooloose/syntastic.git && \
     rm -rf vdebug && git clone git@github.com:joonty/vdebug.git
 }
-alias git-config-cdaringe="git config --global user.name cdaringe && git config --global user.email christopher.dieringer@gmail.com && git config --global core.editor vim"
-alias git-config-gatech="git config --global user.name cdieringer3 && git config --global user.email cdieringer3@gatech.edu && git config --global core.editor vim"
+alias git-config-cdaringe="git config --global user.name cdaringe && git config --global user.email christopher.dieringer@gmail.com && git config --global core.editor vim && git config --global push.default current"
+alias git-config-gatech="git config --global user.name cdieringer3 && git config --global user.email cdieringer3@gatech.edu && git config --global core.editor vim && git config --global push.default current"
 
 ## compression
 alias untar="tar -xvf $1"
