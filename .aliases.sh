@@ -186,10 +186,11 @@ echo "CHA-CHING! ${NICKNAME:=$USER} is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
 alias mininet="ssh -R 52698:localhost:52698 -X mininet@192.168.56.10"
 
 movToGif() {
-  `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=5 --delay=10 > $1.gif`;
+  `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=4 --delay=20 > $1.gif`;
 }
 
 # dirsize
 dir-size () {
   du -L -h -d 1 $1 | gsort -h;
 }
+alias fedora="ssh -p 1122 cdieringer@127.0.0.1"
