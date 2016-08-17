@@ -2,6 +2,7 @@
 
 # dirty-windows-bash
 alias twsrc="cd /c/Users/Cdieringer/Documents/src"
+alias xam="open -n /Applications/Xamarin\ Studio.app"
 
 # config
 export EDITOR='vim' #default
