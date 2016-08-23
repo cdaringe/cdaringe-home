@@ -195,3 +195,16 @@ dir-size () {
   du -L -h -d 1 $1 | gsort -h;
 }
 alias fedora="ssh -p 1122 cdieringer@127.0.0.1"
+
+shutdown() {
+  while true; do
+    read -p "Do you wish to shutdown host: $(hostname)? [yn]" yn
+    case $yn in
+      [Yy]*)
+        $(which shutdown) $@
+        return 0;;
+      [Nn]*) return 1;;
+      *) echo "Please answer yes or no.";;
+    esac
+  done
+}
