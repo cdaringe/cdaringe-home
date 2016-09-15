@@ -6,6 +6,9 @@ execute pathogen#infect('bundle/{}', '~/src/vim/bundle/{}', 'plugin/{}')
 filetype off
 filetype plugin indent on
 
+"general
+set list listchars=tab:>-,trail:.,extends:>,precedes:<
+
 "environment settings
 set mouse=a
 noremap <LeftDrag> <LeftMouse>
