@@ -102,6 +102,6 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # added by Anaconda3 4.1.1 installer
-if [ -f /usr/share/bash-completion/bash_completion ]; then
+if [ -d "/Users/cdieringer/anaconda3/bin" ]; then
   export PATH="/Users/cdieringer/anaconda3/bin:$PATH"
 fi
