@@ -27,7 +27,7 @@ alias node4="/usr/local/n/versions/node/4.4.3/bin/node"
 alias npm2="/usr/local/n/versions/node/4.4.3/bin/npm"
 alias pruny="npm prune && npm install"
 
-# file  
+# file
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -163,7 +163,6 @@ export PATH=/home/$USER/node/:$PATH
 alias npmo="(cd ~/.local-npm && local-npm &)"
 alias npm-local="npm set registry http://127.0.0.1:5080"
 alias npm-std="npm set registry https://registry.npmjs.org"
-
 # profile
 alias bashconfig="$EDITOR ~/.bash_profile"
 if [ -n "${BASH_VERSION}" ]; then
@@ -187,17 +186,24 @@ echo "CHA-CHING! ${NICKNAME:=$USER} is runnin' $OS $VER $BITS-bit ($ARCTCTR)"
 
 alias mininet="ssh -R 52698:localhost:52698 -X mininet@192.168.56.10"
 
-movToGif() {
+function movToGif() {
   `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=4 --delay=20 > $1.gif`;
 }
 
 # dirsize
-dir-size () {
+function dir-size () {
   du -L -h -d 1 $1 | gsort -h;
 }
-alias fedora="ssh -p 1122 cdieringer@127.0.0.1"
 
-shutdown() {
+alias fedora="ssh -p 1122 cdieringer@127.0.0.1";
+
+function nrc () {
+  echo "activating $1"
+  npmrc $1;
+  sourceme;
+}
+
+function shutdown() {
   while true; do
     read -p "Do you wish to shutdown host: $(hostname)? [yn]" yn
     case $yn in
@@ -209,3 +215,4 @@ shutdown() {
     esac
   done
 }
+
