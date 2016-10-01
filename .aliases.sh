@@ -155,7 +155,14 @@ alias aliases="$EDITOR ~/.aliases.sh"
 alias secrets="$EDITOR ~/.secrets.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-alias uall="(cd ~ && git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .vimrc -f && git commit -m 'Config updates' && gp && git push origin master && sourceme)"
+function uall () {
+  cd ~
+  git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .vimrc .editorconfig -f
+  git commit -m 'Config updates'
+  gp
+  git push origin master
+  sourceme
+}
 
 ## node
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
