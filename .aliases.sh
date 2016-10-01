@@ -155,13 +155,14 @@ alias aliases="$EDITOR ~/.aliases.sh"
 alias secrets="$EDITOR ~/.secrets.sh"
 alias ualiases="(cd ~;git add ~/.aliases.sh; git commit -m 'aliases updated';git push origin master;sourceme)"
 alias dbfuncs="$EDITOR ~/.dbfuncs.sh"
-function uall () {
-  cd ~
-  git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .vimrc .editorconfig -f
-  git commit -m 'Config updates'
-  gp
-  git push origin master
-  sourceme
+alias uall="(_uall)"
+function _uall () {
+  cd ~;
+  git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .vimrc .editorconfig -f;
+  git commit -m 'Config updates';
+  gp;
+  git push origin master;
+  sourceme;
 }
 
 ## node
