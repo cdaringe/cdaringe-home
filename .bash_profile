@@ -115,6 +115,9 @@ then
     ICON="🚨 🌎"
 elif grep -Fq "npms-t" ~/.npmrc
 then
+    ICON="🚨 🎌️"
+elif grep -Fq "npms-l" ~/.npmrc
+then
     ICON="🚨 ☠️"
 else
     ICON=🛰
