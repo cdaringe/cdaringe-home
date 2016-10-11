@@ -13,7 +13,6 @@ fi
 # git
 `git config --global color.ui auto`
 
-
 # nvm config
 if [[ $OS == 'Darwin' ]]; then
     export NVM_DIR="/Users/$USER/.nvm"
@@ -31,3 +30,4 @@ if [ -f ~/bin/rmate ]; then
 fi
 
 export DROPLET_IP="104.236.146.16"
+export DROPLET_JR_IP="159.203.241.229"
