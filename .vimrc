@@ -16,8 +16,8 @@ noremap! <LeftDrag> <LeftMouse>
 
 set fileformat=unix
 set backspace=indent,eol,start
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set number
 set background=light

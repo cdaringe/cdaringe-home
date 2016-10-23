@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# docker
+alias docker-cleanup="docker run -d -v /var/run/docker.sock:/var/run/docker.sock:rw -v /var/lib/docker:/var/lib/docker:rw meltwater/docker-cleanup:latest"
+
 # dirty-windows-bash
 alias twsrc="cd /c/Users/Cdieringer/Documents/src"
 alias xam="open -n /Applications/Xamarin\ Studio.app"
@@ -225,3 +228,5 @@ function shutdown() {
   done
 }
 
+alias checkmark="echo ✓"
+alias tm="echo ™"
