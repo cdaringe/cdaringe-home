@@ -110,13 +110,13 @@ fi
 
 # default,
 #PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
-if grep -Fq "npms-e" ~/.npmrc
+if grep -Fq "npm-e" ~/.npmrc
 then
     ICON="🚨 🌎"
-elif grep -Fq "npms-t" ~/.npmrc
+elif grep -Fq "npm-t" ~/.npmrc
 then
     ICON="🚨 🎌️"
-elif grep -Fq "npms-l" ~/.npmrc
+elif grep -Fq "npm-l" ~/.npmrc
 then
     ICON="🚨 ☠️"
 else
