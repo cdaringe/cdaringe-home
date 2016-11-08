@@ -11,7 +11,6 @@ alias xam="open -n /Applications/Xamarin\ Studio.app"
 export EDITOR='vim' #default
 alias dbmap="sudo $EDITOR /coins/config/dbmap.json"
 alias gobash="chsh -s $(which bash) $USER"
-alias getsecrets="scp devcoin4:~/.secrets.sh ~/"
 alias sed-replace="echo \"sed -i '' 's/::find::/::replace::/' **/*.js\""
 
 # sys

@@ -21,6 +21,11 @@ else
     VER=$(uname -r)
 fi
 
+# add JAVA_HOME for OSX
+if [ -f /usr/libexec/java_home ]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
 case $(uname -m) in
 x86_64)
     BITS=64
