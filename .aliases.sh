@@ -92,6 +92,7 @@ coc () { ssh -l cdieringer3 cc-shuttle2.cc.gatech.edu; }
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 
 # git
+alias gum="git branch -u origin/master"
 alias gs="git status"
 alias gpm="git pull origin master"
 alias gpd="git pull origin develop"
