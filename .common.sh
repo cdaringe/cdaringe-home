@@ -30,4 +30,4 @@ if [ -f ~/bin/rmate ]; then
 fi
 
 export DROPLET_IP="104.236.146.16"
-export DROPLET_JR_IP="159.203.241.229"
+export DROPLET_JR_IP="138.197.204.89"
