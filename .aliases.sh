@@ -25,10 +25,6 @@ alias couch2proxy="haproxy -f ~/dev/couchdb/rel/haproxy.cfg"
 alias s.="sublime ."
 alias a.="atom ."
 
-alias node4="/usr/local/n/versions/node/4.4.3/bin/node"
-alias npm2="/usr/local/n/versions/node/4.4.3/bin/npm"
-alias pruny="npm prune && npm install"
-
 # file
 alias ..="cd .."
 alias ...="cd ../.."
@@ -173,8 +169,13 @@ function _uall () {
 export PATH=$PATH:$HOME/bin:/usr/local/bin/npm
 export PATH=/home/$USER/node/:$PATH
 alias npmo="(cd ~/.local-npm && local-npm &)"
+
+## npm
 alias npm-local="npm set registry http://127.0.0.1:5080"
 alias npm-std="npm set registry https://registry.npmjs.org"
+alias nga="mv .npmrc .npmrcbu" # npmrc... go away!
+alias ncb="mv .npmrcbu .npmrc" # npmrc... come back!
+
 # profile
 alias bashconfig="$EDITOR ~/.bash_profile"
 if [ -n "${BASH_VERSION}" ]; then
