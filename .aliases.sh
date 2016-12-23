@@ -17,7 +17,8 @@ alias sed-replace="echo \"sed -i '' 's/::find::/::replace::/' **/*.js\""
 alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 alias shasum="sha1sum"
-alias backupdroplet="rsync -avz $DROPLET_IP:/www/ ~/Dropbox/backup/www && rsync -avz --exclude-from '/Users/cdieringer/Dropbox/backup/exclude-ghost.txt' $DROPLET_IP:/ghost/ ~/Dropbox/backup/ghost && rsync -avz $DROPLET_IP:/data/rethinkdb/ ~/Dropbox/backup/rethinkdb"
+export BACKUP_FOLDER="~/Google\ Drive/backup"
+alias backupdroplet="rsync -avz $DROPLET_IP:/www/ $BACKUP_FOLDER/www && rsync -avz --exclude-from '$BACKUP_FOLDER/exclude-ghost.txt' $DROPLET_IP:/ghost/ $BACKUP_FOLDER/ghost && rsync -avz $DROPLET_IP:/data/rethinkdb/ $BACKUP_FOLDER/rethinkdb"
 
 # apps
 alias couch2="~/dev/couchdb/dev/run"

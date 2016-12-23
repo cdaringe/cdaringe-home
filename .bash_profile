@@ -108,6 +108,7 @@ if [ -d "/Users/cdieringer/anaconda3/bin" ]; then
   export PATH="/Users/cdieringer/anaconda3/bin:$PATH"
 fi
 
+export GOPATH=$HOME/src/go
 
 ## tripcity
 # default,
@@ -129,3 +130,4 @@ fi
 # bold \[\033[01;32m\]
 # normal thickness \[\033[00m\]
 PS1="\[\e]0;\w\a\]\[\033[01;32m\]\u@\h\[\033[00m\] $ICON  \W\$ "
+
