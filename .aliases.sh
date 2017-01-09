@@ -18,7 +18,16 @@ alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 alias shasum="sha1sum"
 export BACKUP_FOLDER="~/Google\ Drive/backup"
-alias backupdroplet="rsync -avz $DROPLET_IP:/www/ $BACKUP_FOLDER/www && rsync -avz --exclude-from '$BACKUP_FOLDER/exclude-ghost.txt' $DROPLET_IP:/ghost/ $BACKUP_FOLDER/ghost && rsync -avz $DROPLET_IP:/data/rethinkdb/ $BACKUP_FOLDER/rethinkdb"
+alias _backupwww="rsync -avz --exclude 'node_modules/*' $DROPLET_IP:/www/ $BACKUP_FOLDER/www;"
+alias _backupghost="rsync -avz --exclude-from $BACKUP_FOLDER/exclude-ghost.txt $DROPLET_IP:/ghost/ $BACKUP_FOLDER/ghost"
+alias _backupdb="rsync -avz $DROPLET_IP:/data/rethinkdb/ $BACKUP_FOLDER/rethinkdb"
+
+function backupdroplet () {
+  echo '[droplet-backup]: backing up /www'
+  echo `_backupwww`
+  echo '[droplet-backup]: backing up /db'
+  echo `_backupdb`
+}
 
 # apps
 alias couch2="~/dev/couchdb/dev/run"

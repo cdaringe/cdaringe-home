@@ -30,4 +30,6 @@ if [ -f ~/bin/rmate ]; then
 fi
 
 export DROPLET_IP="104.236.146.16"
-export DROPLET_JR_IP="138.197.204.89"
+export DROPLET_JR_IP="138.197.194.18"
+export DOCKER_REGISTRY="registry.cdaringe.com"
+export DOCKER_JR_REGISTRY="registry.cdaringe.me"
