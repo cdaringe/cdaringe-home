@@ -4,7 +4,7 @@
 alias docker-cleanup="docker run -d -v /var/run/docker.sock:/var/run/docker.sock:rw -v /var/lib/docker:/var/lib/docker:rw --env KEEP_IMAGES='ubuntu:trusty, ubuntu:latest, node, node:slim' meltwater/docker-cleanup:latest"
 
 # essentials™
-alias gamedie="echo 🎲 🎲 | pbcopy"
+alias gamedie="echo 🎲 | pbcopy"
 
 # dirty-windows-bash
 alias twsrc="cd /c/Users/Cdieringer/Documents/src"
