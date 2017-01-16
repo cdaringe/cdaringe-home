@@ -119,6 +119,7 @@ alias gcr='git checkout release'
 alias gcm='git checkout master'
 alias gd='git diff --ignore-space-change --ignore-all-space'
 alias gh="git config --get remote.origin.url"
+alias gpurgebranches="confirm 'Purge all non-current git branches?' && git branch --merged | grep -v \* | xargs git branch -D"
 
 ballervim () {
     mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -227,6 +228,19 @@ function nrc () {
   echo "activating $1"
   npmrc $1;
   sourceme;
+}
+
+confirm () {
+  # call with a prompt string or use a default
+  read -r -p "${1:-Are you sure? } [yN] " response
+  case $response in
+    [yY][eE][sS]|[yY]) 
+      true
+      ;;
+    *)
+      false
+      ;;
+  esac
 }
 
 function shutdown() {
