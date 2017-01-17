@@ -29,6 +29,10 @@ if [ -f ~/bin/rmate ]; then
     export PATH="$PATH:$HOME/bin"
 fi
 
+if hash yarn 2>/dev/null; then
+  export PATH="$PATH:`yarn global bin`"
+fi
+
 export DROPLET_IP="104.236.146.16"
 export DROPLET_JR_IP="138.197.194.18"
 export DOCKER_REGISTRY="registry.cdaringe.com"
