@@ -108,6 +108,7 @@ alias gpd="git pull origin develop"
 alias gpushd="git push origin develop"
 alias gpush="git push origin $1";
 alias gp="git pull"
+alias gpum="git push --set-upstream origin master"
 alias gl="git log"
 alias gcm="git commit -am $1"
 alias gbl="git branch --list"
@@ -234,7 +235,7 @@ confirm () {
   # call with a prompt string or use a default
   read -r -p "${1:-Are you sure? } [yN] " response
   case $response in
-    [yY][eE][sS]|[yY]) 
+    [yY][eE][sS]|[yY])
       true
       ;;
     *)
