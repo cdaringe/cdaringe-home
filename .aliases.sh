@@ -259,3 +259,18 @@ function shutdown() {
 
 alias checkmark="echo ✓"
 alias tm="echo ™"
+
+function random-string () {
+  cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z' | fold -w $1 | head -n 1
+}
+function random-filename () {
+  echo $(random-string 15).$(random-string 3)
+}
+function encrypt-file () {
+  local DEST=$(random-filename);
+  eval "gpg --output $DEST --symmetric --cipher-algo AES256 $1";
+  echo "file written to $DEST";
+}
+function decrypt-file () {
+  gpg --output $2 --decrypt $1
+}
