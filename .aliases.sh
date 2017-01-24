@@ -43,9 +43,9 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alFG'
+alias la='ls -AG'
+alias l='ls -CFG'
 alias purgedir="rm -rf .* *"
 alias purgeswap="rm -rf ~/.vim/swapfiles"
 alias home="cd ~"
@@ -274,3 +274,9 @@ function encrypt-file () {
 function decrypt-file () {
   gpg --output $2 --decrypt $1
 }
+
+weather() { curl wttr.in/"$1"; }
+alias myip="curl icanhazip.com"
+### plz: re-run the last command as root.
+alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
+

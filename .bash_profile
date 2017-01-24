@@ -131,3 +131,8 @@ fi
 # normal thickness \[\033[00m\]
 PS1="\[\e]0;\w\a\]\[\033[01;32m\]\u@\h\[\033[00m\] $ICON  \W\$ "
 
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
