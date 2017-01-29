@@ -94,8 +94,6 @@ alias ops="cd /coins/ansible-ops"
 alias lcd="cd /coins/localcoin"
 alias lcdc="cd /coins/localcoin/coins/www/html"
 alias lc="ssh $USER@localhost -p 2222" # localcoin logon!
-droplet () { ssh "$DROPLET_IP"; }
-dropletJr () { ssh "root@$DROPLET_JR_IP"; }
 coc () { ssh -l cdieringer3 cc-shuttle2.cc.gatech.edu; }
 
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
