@@ -278,3 +278,6 @@ alias myip="curl icanhazip.com"
 ### plz: re-run the last command as root.
 alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
 
+get-vagrant-ip () {
+  vagrant ssh -c "hostname -I | cut -d' ' -f2" 2>/dev/null
+}
