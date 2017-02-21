@@ -83,11 +83,6 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# added by Anaconda3 4.1.1 installer
-if [ -d "/Users/cdieringer/anaconda3/bin" ]; then
-  export PATH="/Users/cdieringer/anaconda3/bin:$PATH"
-fi
-
 export GOPATH=$HOME/src/go
 
 ## tripcity

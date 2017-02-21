@@ -103,3 +103,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 . ~/.common.sh
+export PATH="$HOME/.yarn/bin:$PATH"
