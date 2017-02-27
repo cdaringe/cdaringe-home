@@ -20,16 +20,10 @@ alias sed-replace="echo \"sed -i '' 's/::find::/::replace::/' **/*.js\""
 alias sudoers="sudo vim /etc/sudoers"
 alias useradd="echo \"Did you mean to perform adduser?\""
 alias shasum="sha1sum"
-export BACKUP_FOLDER="~/Google\ Drive/backup"
-alias _backupwww="rsync -avz --exclude 'node_modules/*' $DROPLET_IP:/www/ $BACKUP_FOLDER/www;"
-alias _backupghost="rsync -avz --exclude-from $BACKUP_FOLDER/exclude-ghost.txt $DROPLET_IP:/ghost/ $BACKUP_FOLDER/ghost"
-alias _backupdb="rsync -avz $DROPLET_IP:/data/rethinkdb/ $BACKUP_FOLDER/rethinkdb"
 
+export BACKUP_FOLDER="~/Google\ Drive/backup"
 function backupdroplet () {
-  echo '[droplet-backup]: backing up /www'
-  echo `_backupwww`
-  echo '[droplet-backup]: backing up /db'
-  echo `_backupdb`
+  rsync -avz --exclude-from $BACKUP_FOLDER/exclude.txt  $DROPLET_IP:/www/ $BACKUP_FOLDER/www;
 }
 
 # apps

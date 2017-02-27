@@ -1,3 +1,5 @@
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi 
+
 #!/bin/bash
 # Get system data
 # don't put duplicate lines or lines starting with space in the history.
@@ -27,10 +29,6 @@ color_prompt=yes
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
-fi
-
-if [ -f /etc/.bashrc ]; then
-  . /etc/.bashrc
 fi
 
 if [ "$color_prompt" = yes ]; then
