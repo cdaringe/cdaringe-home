@@ -1,4 +1,5 @@
 #!/bin/bash
+alias sourceme="source ~/.bash_profile"
 
 # docker
 alias docker-cleanup="docker run -d -v /var/run/docker.sock:/var/run/docker.sock:rw -v /var/lib/docker:/var/lib/docker:rw --env KEEP_IMAGES='ubuntu:trusty, ubuntu:latest, node, node:slim' meltwater/docker-cleanup:latest"
@@ -94,7 +95,7 @@ alias secrets="$EDITOR ~/.secrets.sh"
 function bananas () {
   echo 'fruits';
 }
-function patchy () {
+function uall () {
   echo '[cd] Updating cdaringe-home profile...';
   cd ~;
   echo '[cd] Adding key profile files...';
@@ -116,10 +117,6 @@ export PATH=/home/$USER/node/:$PATH
 ## npm
 alias nga="mv .npmrc .npmrcbu" # npmrc... go away!
 alias ncb="mv .npmrcbu .npmrc" # npmrc... come back!
-
-# profile
-alias bashconfig="$EDITOR ~/.bash_profile"
-alias sourceme="source ~/.bash_profile"
 
 #install rmate
 alias getrmate="curl -Lo ~/rmate https://raw.github.com/textmate/rmate/master/bin/rmate && sudo chmod a+x ~/rmate"
