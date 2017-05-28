@@ -1,8 +1,6 @@
 #!/bin/bash
-if [ -f ~/.bashrc ]; then . ~/.bashrc; fi 
-if [ -f /etc/bashrc ]; then
- . /etc/bashrc
-fi
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+if [ -f /etc/bashrc ]; then . /etc/bashrc; fi
 
 # PATH Extensions
 export PATH="/usr/local/bin:$PATH"

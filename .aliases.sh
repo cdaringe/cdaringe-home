@@ -1,6 +1,10 @@
 #!/bin/bash
 alias sourceme="source ~/.bash_profile"
 
+# gcc
+function gccunsafe () {
+  gcc -g -fno-stack-protector -D_FORTIFY_SOURCE=0 "$@"
+}
 # docker
 alias docker-cleanup="docker run -d -v /var/run/docker.sock:/var/run/docker.sock:rw -v /var/lib/docker:/var/lib/docker:rw --env KEEP_IMAGES='ubuntu:trusty, ubuntu:latest, node, node:slim' meltwater/docker-cleanup:latest"
 
