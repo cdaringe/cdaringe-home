@@ -3,7 +3,7 @@ alias sourceme="source ~/.bash_profile"
 
 # gcc
 function gccunsafe () {
-  gcc -g -fno-stack-protector -D_FORTIFY_SOURCE=0 "$@"
+  gcc -g -m32 -fno-stack-protector -D_FORTIFY_SOURCE=0 "$@"
 }
 # docker
 alias docker-cleanup="docker run -d -v /var/run/docker.sock:/var/run/docker.sock:rw -v /var/lib/docker:/var/lib/docker:rw --env KEEP_IMAGES='ubuntu:trusty, ubuntu:latest, node, node:slim' meltwater/docker-cleanup:latest"
@@ -23,7 +23,7 @@ alias shasum="sha1sum"
 
 export BACKUP_FOLDER=~/Google\ Drive/backup
 function backupdroplet () {
-  rsync -avz --exclude-from "$BACKUP_FOLDER/exclude.txt"  root@$DROPLET_JR_IP:/www/ "$BACKUP_FOLDER/www";
+  rsync -avz --exclude-from "$BACKUP_FOLDER/exclude.txt"  root@$DROPLET_IP:/www/ "$BACKUP_FOLDER/www";
 }
 
 # file
@@ -51,6 +51,7 @@ alias gpm="git pull origin master"
 alias gpush="git push origin $1";
 alias gp="git pull"
 alias gpum="git push --set-upstream origin master"
+alias gph="git push origin HEAD"
 alias gl="git log"
 alias gbl="git branch --list"
 alias gba="git branch --list -a"
@@ -199,3 +200,9 @@ alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
 get-vagrant-ip () {
   vagrant ssh -c "hostname -I | cut -d' ' -f2" 2>/dev/null
 }
+
+alias django="./build/venv/bin/python ./build/venv/bin/manage runserver 3031 --settings=connect_rest.project.local_settings --nothreading --nostatic"
+alias djangotest="PYTEST_ADDOPTS=--ds=tests.settings ./build/venv/bin/python setup.py pytest"
+alias djangomakemigratrations="./build/venv/bin/manage makemigrations --settings=connect_rest.project.local_settings"
+alias djangounmigrate="./build/venv/bin/manage migrate --settings=connect_rest.project.local_settings connect_rest 0001"
+alias djangomigrate="./build/venv/bin/manage migrate --settings=connect_rest.project.local_settings"
