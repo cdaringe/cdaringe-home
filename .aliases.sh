@@ -44,6 +44,7 @@ coc () { ssh -l cdieringer3 cc-shuttle2.cc.gatech.edu; }
 alias rmateclog="echo 'Kill process using 52698 (kill ###)'; sudo netstat -antpl  | grep 52698"
 
 # git
+alias git=hub
 alias bumpci="git commit --allow-empty -m 'chore(pkg): bump ci'"
 alias gum="git branch -u origin/master"
 alias gs="git status"
@@ -104,7 +105,7 @@ function uall () {
   echo '[cd] Updating cdaringe-home profile...';
   cd ~;
   echo '[cd] Adding key profile files...';
-  git add .gitignore .aliases.sh .common.sh .env.sh .bash_profile .bashrc .vimrc .editorconfig -f;
+  git add .gitignore .aliases.sh .work.sh .common.sh .env.sh .bash_profile .bashrc .vimrc .editorconfig -f;
   echo '[cd] Committing...';
   git commit -m 'Config updates';
   echo '[cd] Merging...';

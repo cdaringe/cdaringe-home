@@ -103,6 +103,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 . ~/.common.sh
+. ~/.work.sh
 export PATH="$HOME/.yarn/bin:$PATH"
 
 # export NVM_DIR="$HOME/.nvm"
