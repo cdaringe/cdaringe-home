@@ -4,21 +4,21 @@ export NODE_ENV='development'
 export COINS_ENV='development'
 
 if [ -f /etc/lsb-release ]; then
-    . /etc/lsb-release
-    OS=$DISTRIB_ID
-    VER=$DISTRIB_RELEASE
+  . /etc/lsb-release
+  OS=$DISTRIB_ID
+  VER=$DISTRIB_RELEASE
 elif [ -f /etc/debian_version ]; then
-    OS="ubuntu"  # XXX or Ubuntu??
-    VER=$(cat /etc/debian_version)
+  OS="ubuntu"  # XXX or Ubuntu??
+  VER=$(cat /etc/debian_version)
 elif [ -f /etc/yum.conf ]; then
-    OS=centos
-    VER=crappy-version
+  OS=centos
+  VER=crappy-version
 elif [ -f /bin/pacman ]; then
-    OS="arch"
+  OS="arch"
     VER="?"
 else
-    OS=$(uname -s)
-    VER=$(uname -r)
+  OS=$(uname -s)
+  VER=$(uname -r)
 fi
 
 # add JAVA_HOME for OSX
@@ -28,17 +28,12 @@ fi
 
 case $(uname -m) in
 x86_64)
-    BITS=64
-    ;;
+  BITS=64
+  ;;
 i*86)
-    BITS=32
-    ;;
+  BITS=32
+  ;;
 *)
-    BITS=?
-    ;;
+  BITS=?
+  ;;
 esac
-
-dev() {
-    export COINS_ENV='development'
-    export NODE_ENV='development'
-}

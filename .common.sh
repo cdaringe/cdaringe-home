@@ -1,13 +1,9 @@
-if [ -f ~/.secrets.sh ]; then
-    . ~/.secrets.sh
-fi
-
 if [ -f ~/.env.sh ]; then
-    . ~/.env.sh
+  . ~/.env.sh
 fi
 
 if [ -f ~/.aliases.sh ]; then
-    . ~/.aliases.sh
+  . ~/.aliases.sh
 fi
 
 # git
@@ -15,7 +11,7 @@ fi
 
 # bin
 if [ -f ~/bin/rmate ]; then
-    export PATH="$PATH:$HOME/bin"
+  export PATH="$PATH:$HOME/bin"
 fi
 
 if hash yarn 2>/dev/null; then
