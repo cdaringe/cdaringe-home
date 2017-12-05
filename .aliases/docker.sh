@@ -1,1 +1,5 @@
 alias docker-cleanup="docker run -d -v /var/run/docker.sock:/var/run/docker.sock:rw -v /var/lib/docker:/var/lib/docker:rw --env KEEP_IMAGES='ubuntu:trusty, ubuntu:latest, node, node:slim' meltwater/docker-cleanup:latest"
+alias dcomposeup="docker-compose -f docker-compose.yml -f docker-compose.dev.yml up"
+alias dcomposedown="docker-compose -f docker-compose.yml -f docker-compose.dev.yml down"
+alias pdcomposeup="docker-compose -f docker-compose.yml -f docker-compose.prod.yml up"
+alias pdcomposedown="docker-compose -f docker-compose.yml -f docker-compose.prod.yml down"
