@@ -15,3 +15,4 @@ function nrc () {
 ## npm
 alias nga="mv .npmrc .npmrcbu" # npmrc... go away!
 alias ncb="mv .npmrcbu .npmrc" # npmrc... come back!
+alias pkg="cat package.json | jq ."
