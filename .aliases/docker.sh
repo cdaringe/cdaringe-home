@@ -3,3 +3,6 @@ alias dcomposeup="docker-compose -f docker-compose.yaml -f docker-compose.dev.ya
 alias dcomposedown="docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down"
 alias pdcomposeup="docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up"
 alias pdcomposedown="docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml down"
+
+alias dcconnectup="docker-compose -f docker-compose.yaml -f expose-ports.yaml up"
+alias dcconnectdown="docker-compose -f docker-compose.yaml -f expose-ports.yaml down"
