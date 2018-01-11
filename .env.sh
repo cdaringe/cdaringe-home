@@ -1,7 +1,12 @@
 #!/bin/bash
+
+for i in $(ls .env)
+do
+  . .env/$i
+done
+
 export ARCTCTR=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 export NODE_ENV='development'
-export COINS_ENV='development'
 
 if [ -f /etc/lsb-release ]; then
   . /etc/lsb-release
