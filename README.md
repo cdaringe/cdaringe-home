@@ -1,2 +1,3 @@
-# cdaringe-home
-cdaringe home config
+# deprecated
+
+see https://github.com/cdaringe/dotfiles
