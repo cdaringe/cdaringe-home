@@ -20,15 +20,7 @@ export ANDROID_HOME="/Users/cdieringer/Library/Android/sdk"
 export ANDROID_SDK_ROOT=$ANDROID_HOME
 export PATH="/usr/local/bin:$PATH"
 
-for i in $(ls .aliases)
-do
-  . .aliases/$i
-done
-
-# if [[ $OS == 'Darwin' ]]; then
-#   . ~/.aliases/osx.sh
-# fi
-
+. ~/.aliases/.aliases.sh
 . ~/.common.sh
 . ~/.work.sh
 
